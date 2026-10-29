@@ -1,0 +1,18 @@
+{
+  "name": "Pratap FitAI — 90kg to 70kg Smart Transformation",
+  "short_name": "Pratap FitAI",
+  "description": "AI Calorie Scanner, Animated Gym Trainer, Desi Diet & Quit Smoking Coach",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#060b16",
+  "theme_color": "#10b981",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

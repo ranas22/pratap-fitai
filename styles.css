@@ -1,0 +1,1228 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+:root {
+  --bg: #050914;
+  --card: rgba(19, 28, 49, 0.78);
+  --card-alt: rgba(30, 41, 69, 0.85);
+  --primary: #10b981;
+  --primary-glow: rgba(16, 185, 129, 0.45);
+  --accent: #f59e0b;
+  --danger: #ef4444;
+  --info: #38bdf8;
+  --purple: #a855f7;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(16, 185, 129, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.12) 0%, transparent 45%);
+  color: var(--text);
+  line-height: 1.5;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding-bottom: 98px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Header with Shimmer */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(5, 9, 20, 0.88);
+  backdrop-filter: blur(16px);
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-orb {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10b981, #0ea5e9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.5);
+  animation: floatPulse 3s ease-in-out infinite;
+}
+
+@keyframes floatPulse {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-2px) scale(1.05); }
+}
+
+.user-greet h1 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ffffff, #6ee7b7, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.3px;
+}
+
+.user-greet p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: var(--card-alt);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  padding: 8px 11px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.icon-btn:active {
+  transform: scale(0.93);
+}
+
+.icon-btn.install-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+/* Live Sticky Calorie Status Bar */
+.live-notif-bar {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(56, 189, 248, 0.2));
+  border-bottom: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  box-shadow: 0 0 8px #10b981;
+  animation: blinkDot 1.4s infinite;
+}
+
+@keyframes blinkDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+
+/* Tab Animations */
+.tab-content {
+  display: none;
+  padding: 16px;
+  animation: slideUpFade 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Glassmorphic Cards */
+.card {
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+  padding: 16px;
+  margin-bottom: 15px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-card {
+  background: linear-gradient(155deg, rgba(16, 185, 129, 0.16) 0%, rgba(15, 23, 42, 0.9) 65%, rgba(56, 189, 248, 0.14) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.12);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 0.96rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 0.68rem;
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.badge-green { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+.badge-amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
+.badge-red { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); }
+.badge-blue { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); }
+
+/* Animated Calorie Ring */
+.calorie-grid {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.ring-wrap {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-svg {
+  transform: rotate(-90deg);
+  width: 128px;
+  height: 128px;
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.35));
+}
+
+.ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 10;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.22, 1, 0.36, 1), stroke 0.3s ease;
+}
+
+.ring-center {
+  position: absolute;
+  text-align: center;
+}
+
+.ring-center .flame-anim {
+  font-size: 1.1rem;
+  display: block;
+  animation: flameBounce 1.4s infinite ease-in-out;
+}
+
+@keyframes flameBounce {
+  0%, 100% { transform: scale(1) rotate(-3deg); }
+  50% { transform: scale(1.18) rotate(3deg); }
+}
+
+.ring-center .cal-left {
+  font-size: 1.38rem;
+  font-weight: 800;
+  display: block;
+  line-height: 1.05;
+}
+
+.ring-center .cal-label {
+  font-size: 0.66rem;
+  color: var(--text-muted);
+}
+
+.cal-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.81rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 7px 11px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.macro-bars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.macro-item {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 8px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.macro-item span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.macro-item strong {
+  font-size: 0.86rem;
+  color: #fff;
+}
+
+.progress-mini {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.progress-mini-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.6s ease;
+}
+
+.coach-verdict {
+  margin-top: 12px;
+  padding: 11px 13px;
+  border-radius: 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.13);
+  border-left: 4px solid var(--primary);
+}
+
+/* Interactive Water & Smoke Cards with Animation */
+.quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.quick-box {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.water-wave-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.18), rgba(14, 165, 233, 0.32));
+  transition: height 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.quick-box > * {
+  position: relative;
+  z-index: 1;
+}
+
+.quick-box h4 {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.quick-val {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-sm {
+  flex: 1;
+  padding: 8px 9px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--card-alt);
+  color: var(--text);
+  transition: transform 0.15s;
+}
+
+.btn-sm:active {
+  transform: scale(0.94);
+}
+
+.btn-sm.primary {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+}
+
+.btn-sm.danger {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+/* Weight Progress Bar */
+.weight-bar-wrap {
+  margin: 10px 0;
+}
+
+.weight-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.weight-track {
+  height: 13px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.weight-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #10b981, #38bdf8);
+  border-radius: 99px;
+  transition: width 0.6s ease;
+}
+
+/* Camera Scanner Laser Animation */
+.camera-dropzone {
+  border: 2px dashed rgba(16, 185, 129, 0.5);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(15, 23, 42, 0.6) 100%);
+  border-radius: 20px;
+  padding: 24px 16px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.scanner-laser {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #10b981, #38bdf8, transparent);
+  box-shadow: 0 0 12px #10b981;
+  animation: scanLaserMove 2.6s ease-in-out infinite;
+}
+
+@keyframes scanLaserMove {
+  0%, 100% { top: 8%; opacity: 0.4; }
+  50% { top: 90%; opacity: 1; }
+}
+
+.camera-icon {
+  font-size: 2.5rem;
+  margin-bottom: 6px;
+  display: inline-block;
+  animation: floatPulse 2.5s infinite ease-in-out;
+}
+
+.camera-preview {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+.btn-full {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+  transition: transform 0.15s;
+}
+
+.btn-full:active {
+  transform: scale(0.98);
+}
+
+/* ============================================================================
+   ANIMATED GYM EXERCISE CARDS & SVG KEYFRAME MOTIONS
+   ============================================================================ */
+.gym-card {
+  background: var(--card-alt);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 12px;
+  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: 78px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.gym-card.done {
+  border-color: var(--primary);
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.gym-anim-stage {
+  width: 84px;
+  height: 84px;
+  border-radius: 14px;
+  background: #0b1120;
+  border: 1px solid rgba(56, 189, 248, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.real-ex-frame-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.real-ex-frame-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.real-ex-frame-wrap img.frame-b {
+  animation: toggleExFrame 1.3s steps(1, end) infinite;
+}
+
+@keyframes toggleExFrame {
+  0%, 49% { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+
+.gym-anim-svg {
+  width: 68px;
+  height: 68px;
+}
+
+/* SVG Exercise Keyframes */
+.anim-barbell-updown {
+  animation: barbellPress 1.5s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes barbellPress {
+  0%, 100% { transform: translateY(8px); }
+  50% { transform: translateY(-9px); }
+}
+
+.anim-squat-body {
+  animation: squatMove 1.7s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+@keyframes squatMove {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(10px) scaleY(0.82); }
+}
+
+.anim-curl-arm {
+  animation: curlArm 1.4s ease-in-out infinite;
+  transform-origin: 32px 34px;
+}
+@keyframes curlArm {
+  0%, 100% { transform: rotate(25deg); }
+  50% { transform: rotate(-55deg); }
+}
+
+.anim-run-legs {
+  animation: runStride 0.8s ease-in-out infinite alternate;
+  transform-origin: 32px 36px;
+}
+@keyframes runStride {
+  0% { transform: rotate(-22deg); }
+  100% { transform: rotate(22deg); }
+}
+
+.anim-plank-pulse {
+  animation: plankCore 1.5s ease-in-out infinite;
+}
+@keyframes plankCore {
+  0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 3px #10b981); }
+  50% { transform: translateY(-3px); filter: drop-shadow(0 0 9px #38bdf8); }
+}
+
+.gym-howto-badge {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.7rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 3px 8px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+.gym-demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: #fff;
+  border: none;
+  padding: 6px 11px;
+  border-radius: 9px;
+  font-size: 0.73rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(14, 165, 233, 0.35);
+}
+
+.demo-stage-large {
+  width: 100%;
+  height: 235px;
+  border-radius: 16px;
+  background: #0b1120;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.demo-stage-large svg {
+  width: 170px;
+  height: 170px;
+}
+
+.phase-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #6ee7b7;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.step-card-item {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid #10b981;
+  padding: 8px 10px;
+  border-radius: 9px;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+  color: #e2e8f0;
+}
+
+.mistake-box {
+  background: rgba(239, 68, 68, 0.14);
+  border-left: 3px solid #ef4444;
+  padding: 8px 10px;
+  border-radius: 9px;
+  font-size: 0.76rem;
+  color: #fca5a5;
+  margin-top: 8px;
+}
+
+.detected-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #0f172a;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.thali-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.thali-chip {
+  background: rgba(56, 189, 248, 0.13);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #e0f2fe;
+  padding: 5px 10px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Belly Burner & Stomach Vacuum Animations */
+.vacuum-ring-box {
+  width: 150px;
+  height: 150px;
+  margin: 12px auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.35), rgba(5, 9, 20, 0.9));
+  border: 3px solid #10b981;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
+  transition: transform 0.8s ease, border-color 0.4s ease;
+}
+
+.vacuum-ring-box.suck-in {
+  transform: scale(0.72);
+  border-color: #f59e0b;
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.65);
+}
+
+.rest-timer-bar {
+  position: sticky;
+  bottom: 74px;
+  z-index: 45;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border: 1px solid #38bdf8;
+  border-radius: 16px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.belly-finisher-card {
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.16), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 14px;
+}
+
+/* Enhanced Multi-Ring Animated Breathe In / Hold / Breathe Out Coach */
+.breathe-stage-wrap {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  margin: 14px auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breathe-outer-aura {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent 70%);
+  transition: transform 3.8s ease-in-out, background 1s ease;
+}
+
+.breathe-core-orb {
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #38bdf8, #0f172a 85%);
+  border: 3px solid #38bdf8;
+  box-shadow: 0 0 28px rgba(56, 189, 248, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  transition: transform 3.8s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+.breathe-core-orb.phase-in {
+  transform: scale(1.32);
+  border-color: #10b981;
+  box-shadow: 0 0 42px rgba(16, 185, 129, 0.75);
+}
+
+.breathe-core-orb.phase-hold {
+  transform: scale(1.32);
+  border-color: #f59e0b;
+  box-shadow: 0 0 45px rgba(245, 158, 11, 0.8);
+}
+
+.breathe-core-orb.phase-out {
+  transform: scale(0.76);
+  border-color: #38bdf8;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+}
+
+.breathe-outer-aura.phase-in,
+.breathe-outer-aura.phase-hold {
+  transform: scale(1.25);
+}
+
+.breathe-outer-aura.phase-out {
+  transform: scale(0.65);
+}
+
+/* 7-Day Bar Chart */
+.chart-bars-wrap {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  height: 120px;
+  align-items: end;
+  padding-top: 15px;
+  margin-top: 8px;
+}
+
+.chart-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.chart-bar {
+  width: 100%;
+  max-width: 26px;
+  border-radius: 7px 7px 3px 3px;
+  background: linear-gradient(180deg, #10b981, #059669);
+  transition: height 0.5s ease;
+  min-height: 6px;
+}
+
+.chart-bar.over {
+  background: linear-gradient(180deg, #ef4444, #b91c1c);
+}
+
+/* Floating AI Coach Chat Button */
+.fab-ai-coach {
+  position: fixed;
+  bottom: 84px;
+  right: max(16px, calc(50% - 224px));
+  z-index: 48;
+  background: linear-gradient(135deg, #10b981, #0ea5e9);
+  color: #fff;
+  border: none;
+  border-radius: 99px;
+  padding: 11px 16px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: floatPulse 3s infinite ease-in-out;
+}
+
+/* Breathing Lung Circle for Quit Smoking */
+.lung-breathe-circle {
+  width: 110px;
+  height: 110px;
+  margin: 12px auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.4), rgba(16, 185, 129, 0.1));
+  border: 2px solid #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+  animation: breatheCycle 6s ease-in-out infinite;
+}
+
+@keyframes breatheCycle {
+  0%, 100% { transform: scale(0.82); box-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
+  50% { transform: scale(1.18); box-shadow: 0 0 28px rgba(16, 185, 129, 0.6); }
+}
+
+/* Desi Food List & Chips */
+.chip-filter {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.chip {
+  white-space: nowrap;
+  padding: 7px 13px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--card-alt);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+
+.chip.active {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  border-color: transparent;
+}
+
+.food-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.food-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-alt);
+  padding: 11px 12px;
+  border-radius: 14px;
+  border-left: 4px solid var(--primary);
+}
+
+.food-item.avoid {
+  border-left-color: var(--danger);
+}
+
+.food-info h5 {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.food-info p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.food-add-btn {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 7px 12px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.alt-btn {
+  background: rgba(56, 189, 248, 0.16);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.38);
+  padding: 7px 12px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Day Selector & Meal Slots */
+.day-selector {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.day-pill {
+  flex: 1;
+  min-width: 54px;
+  text-align: center;
+  padding: 9px 6px;
+  background: var(--card-alt);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 13px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.day-pill.active {
+  background: linear-gradient(135deg, #10b981, #0ea5e9);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+
+.meal-slot {
+  background: var(--card-alt);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--primary);
+}
+
+.meal-slot-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: var(--primary);
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.meal-slot h4 {
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+
+.meal-slot p {
+  font-size: 0.77rem;
+  color: var(--text-muted);
+}
+
+/* 5-Tab Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: rgba(8, 13, 26, 0.94);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 7px 6px 11px;
+  z-index: 50;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 2px;
+  font-size: 0.69rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 14px;
+  transition: all 0.2s;
+}
+
+.nav-item .nav-icon {
+  font-size: 1.28rem;
+  transition: transform 0.2s;
+}
+
+.nav-item.active {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.14);
+}
+
+.nav-item.active .nav-icon {
+  transform: translateY(-2px) scale(1.12);
+}
+
+/* Modals & Inputs */
+.input-field {
+  width: 100%;
+  background: #050914;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 11px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  margin-bottom: 7px;
+  font-size: 0.81rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.checklist-item input {
+  width: 19px;
+  height: 19px;
+  accent-color: var(--primary);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-box {
+  background: #111a2e;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  max-width: 440px;
+  width: 100%;
+  padding: 18px;
+  animation: slideUpFade 0.25s ease;
+}
+
+.alt-list-box {
+  max-height: 62vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.alt-option-card {
+  background: var(--card-alt);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid var(--primary);
+  border-radius: 14px;
+  padding: 11px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.alt-option-card h5 {
+  font-size: 0.84rem;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.alt-option-card p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Confetti Burst Particle */
+.confetti-piece {
+  position: fixed;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 999;
+  animation: confettiFall 1.1s ease-out forwards;
+}
+
+@keyframes confettiFall {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) rotate(540deg); opacity: 0; }
+}

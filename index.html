@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#10b981" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Pratap FitAI • 90kg ➔ 70kg</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Sticky Premium Header -->
+  <header class="app-header">
+    <div class="brand-logo">
+      <div class="logo-orb">⚡</div>
+      <div class="user-greet">
+        <h1>Pratap FitAI</h1>
+        <p>Mission 90kg ➔ 70kg • Smart Coach</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button id="installAppBtn" class="icon-btn install-btn" style="display:none;">📲 Install</button>
+      <button class="icon-btn" onclick="updateLiveCalorieNotification(true)" title="Pin Live Calorie Notification">🔔 Pin</button>
+      <button id="openSettingsBtn" class="icon-btn" title="AI Key & Reminders">⚙️</button>
+    </div>
+  </header>
+
+  <!-- Always-On Live Intake & Workout Status Bar -->
+  <div class="live-notif-bar">
+    <span><span class="live-dot"></span><span id="stickyCalorieStatus">Intake: <strong>0 / 1650 kcal</strong> (1650 bacha)</span></span>
+    <span id="stickyGymStatus" style="color:#38bdf8; font-weight:800; cursor:pointer;" onclick="switchTab('tab-gym')">🏋️ Today's Gym ➔</span>
+  </div>
+
+  <!-- TAB 1: DASHBOARD (HOME) -->
+  <main id="tab-home" class="tab-content active">
+    <!-- Calorie Budget Hero -->
+    <section class="card hero-card">
+      <div class="card-header">
+        <span class="card-title">🔥 Live Calorie & Macro Meter</span>
+        <span id="todayDateBadge" class="badge badge-green">LIVE</span>
+      </div>
+      <div class="calorie-grid">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="50"></circle>
+            <circle id="calRing" class="ring-progress" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314"></circle>
+          </svg>
+          <div class="ring-center">
+            <span class="flame-anim">🔥</span>
+            <span id="calRemaining" class="cal-left">1650</span>
+            <span class="cal-label">kcal bacha hai</span>
+          </div>
+        </div>
+        <div class="cal-stats">
+          <div class="stat-row">
+            <span>Daily Limit</span>
+            <strong id="calTarget">1650 kcal</strong>
+          </div>
+          <div class="stat-row">
+            <span>Aaj Intake</span>
+            <strong id="calEaten" style="color:#fbbf24;">0 kcal</strong>
+          </div>
+          <div class="stat-row">
+            <span>Gym/Walk Burn</span>
+            <strong id="calBurned" style="color:#34d399;">+0 kcal</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Macros -->
+      <div class="macro-bars">
+        <div class="macro-item">
+          <span>Protein (110g)</span>
+          <strong id="macroProtein">0g</strong>
+          <div class="progress-mini"><div id="barProtein" class="progress-mini-fill" style="width:0%;background:#10b981;"></div></div>
+        </div>
+        <div class="macro-item">
+          <span>Carbs (Low-GI)</span>
+          <strong id="macroCarbs">0g</strong>
+          <div class="progress-mini"><div id="barCarbs" class="progress-mini-fill" style="width:0%;background:#38bdf8;"></div></div>
+        </div>
+        <div class="macro-item">
+          <span>Healthy Fats</span>
+          <strong id="macroFat">0g</strong>
+          <div class="progress-mini"><div id="barFat" class="progress-mini-fill" style="width:0%;background:#f59e0b;"></div></div>
+        </div>
+      </div>
+
+      <div id="coachVerdictBox" class="coach-verdict">
+        💡 <strong>AI Coach:</strong> Aap abhi <strong>1650 kcal</strong> aur kha sakte hain. Khane se pehle photo scan karein!
+      </div>
+    </section>
+
+    <!-- Today's Animated Gym Preview Card -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">🏋️‍♂️ Aaj Gym Me Kya Karna Hai?</span>
+        <button class="btn-sm primary" style="flex:0 0 auto;" onclick="switchTab('tab-gym')">Animated Guide ➔</button>
+      </div>
+      <div id="homeGymSummary" class="meal-slot" style="margin-bottom:0; border-left-color:#38bdf8;">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Next Meal Alert based on current time -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">🍲 Abhi Kya Khana Hai? (Next Meal)</span>
+        <button class="btn-sm primary" style="flex:0 0 auto;" onclick="switchTab('tab-camera')">📸 Photo Scan</button>
+      </div>
+      <div id="nextMealSuggestion" class="meal-slot" style="margin-bottom:0;">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Quick Trackers: Animated Water Wave & Smoking Control -->
+    <div class="quick-grid">
+      <div class="quick-box">
+        <div id="waterWaveBg" class="water-wave-bg" style="height:0%;"></div>
+        <h4>💧 Hydration (Target 12 Glass)</h4>
+        <div class="quick-val"><span id="waterCount">0</span> / 12 <small style="font-size:0.72rem;color:#94a3b8;">Glass</small></div>
+        <div class="btn-row">
+          <button class="btn-sm" onclick="updateWater(-1)">-1</button>
+          <button class="btn-sm primary" onclick="updateWater(1)">+1 Glass 💧</button>
+        </div>
+      </div>
+
+      <div class="quick-box">
+        <h4>🚭 Smoke Tracker</h4>
+        <div class="quick-val"><span id="smokeCountToday">0</span> / <span id="smokeLimitToday">3</span> <small style="font-size:0.72rem;color:#94a3b8;">Max</small></div>
+        <div class="btn-row">
+          <button class="btn-sm primary" onclick="resistCraving()">💪 Roka</button>
+          <button class="btn-sm danger" onclick="logCigarette()">+1 Piya</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weight & Belly Inch Tracker Card (90kg -> 70kg) -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">⚖️ Weight & Belly Size (90 ➔ 70 kg)</span>
+        <span id="weightLostBadge" class="badge badge-amber">20 kg to go</span>
+      </div>
+      <div class="weight-bar-wrap">
+        <div class="weight-labels">
+          <span>Start: <strong>90.0 kg</strong></span>
+          <span>Current: <strong id="currentWeightDisplay" style="color:#34d399;font-size:1.05rem;">90.0 kg</strong></span>
+          <span>Waist: <strong id="currentWaistDisplay" style="color:#38bdf8;">38.0"</strong></span>
+        </div>
+        <div class="weight-track">
+          <div id="weightProgressBar" class="weight-fill" style="width: 6%;"></div>
+        </div>
+      </div>
+      <div style="display:flex; gap:6px; margin-top:10px;">
+        <input type="number" id="weightInput" step="0.1" class="input-field" style="margin-bottom:0;" placeholder="Kg (e.g. 88.8)" />
+        <input type="number" id="waistInput" step="0.2" class="input-field" style="margin-bottom:0;" placeholder="Kamar Inch (e.g. 37.5)" />
+        <button class="btn-sm primary" style="flex:0 0 95px;" onclick="saveWeight()">Save ✨</button>
+      </div>
+    </section>
+
+    <!-- 12:12 Overnight Belly-Fat Burn & Dinner Rule -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">🌙 12:12 Overnight Belly-Fat Burn</span>
+        <span id="fastingStageBadge" class="badge badge-green">Active</span>
+      </div>
+      <p id="fastingStatusText" style="font-size:0.8rem; color:#e2e8f0; margin-bottom:8px;">
+        <strong>सुबह 8:00 AM नाश्ता ➔ रात 8:00 PM डिनर</strong> (आपके डाइट प्लान के अनुसार)। रात 8 बजे से सुबह 8 बजे तक (12 घंटे) केवल गुनगुना पानी/नींबू पानी लें ताकि रात भर पेट की चर्बी गले!
+      </p>
+      <div class="weight-track" style="height:10px;">
+        <div id="fastingProgressBar" class="weight-fill" style="width:50%;"></div>
+      </div>
+    </section>
+
+    <!-- 7-Day Calorie & Streak Bar Chart -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">📊 7-Day Calorie Trend & Streak</span>
+        <span id="streakBadge" class="badge badge-amber">🔥 1 Day Streak</span>
+      </div>
+      <div id="weeklyCalorieChart" class="chart-bars-wrap">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Daily Perfect Routine Checklist -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">⚡ Daily Super-Habit Checklist</span>
+        <span id="habitScoreBadge" class="badge badge-blue">0/6 Done</span>
+      </div>
+      <div id="habitChecklist">
+        <label class="checklist-item"><input type="checkbox" data-habit="garlic" onchange="toggleHabit(this)"> 🧄 Subah गुनगुना नींबू पानी + 1 कच्ची लहसुन कली</label>
+        <label class="checklist-item"><input type="checkbox" data-habit="vitd" onchange="toggleHabit(this)"> ☀️ 20 min Subah ki Dhoop (Vitamin D Charge)</label>
+        <label class="checklist-item"><input type="checkbox" data-habit="nosugar" onchange="toggleHabit(this)"> 🚫 Zero चीनी, मिठाई, कोल्ड ड्रिंक, समोसा/मैदा</label>
+        <label class="checklist-item"><input type="checkbox" data-habit="walk" onchange="toggleHabit(this)"> 🚶‍♂️ 45 min Brisk Walk (+220 kcal Extra Burn)</label>
+        <label class="checklist-item"><input type="checkbox" data-habit="water3l" onchange="toggleHabit(this)"> 💧 12 Glass Paani Complete</label>
+        <label class="checklist-item"><input type="checkbox" data-habit="earlydinner" onchange="toggleHabit(this)"> 🌙 Raat 8:00 baje se pehle halka Dinner</label>
+      </div>
+    </section>
+
+    <!-- Today's Logged Meals -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">🍽️ Aaj Aapne Kya Khaya (Food Log)</span>
+        <button class="btn-sm" style="flex:0 0 auto;" onclick="clearTodayMeals()">Reset</button>
+      </div>
+      <div id="todayMealsList" class="food-list">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- TAB 2: AI CAMERA & DESI FOOD LOG -->
+  <main id="tab-camera" class="tab-content">
+    <section class="card hero-card">
+      <div class="card-header">
+        <span class="card-title">📸 AI Food Vision Scanner</span>
+        <span id="aiKeyStatusBadge" class="badge badge-amber" onclick="openSettingsModal()" style="cursor:pointer;">🔑 Setup AI Key</span>
+      </div>
+      <div id="aiKeyBanner" style="background:rgba(245,158,11,0.14); border:1px solid rgba(245,158,11,0.4); padding:9px 11px; border-radius:12px; font-size:0.74rem; color:#fde68a; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
+        <span>💡 <strong>Photo se 100% Exact Item & Piece Count</strong> ke liye apni free Gemini API Key daalein, ya niche 1-Tap Thali Chips chunein!</span>
+        <button class="btn-sm primary" style="flex:0 0 auto;" onclick="openSettingsModal()">🔑 Key Daalein</button>
+      </div>
+
+      <!-- Live Camera Viewfinder & Direct Capture -->
+      <input type="file" id="directCameraInput" accept="image/*" capture="environment" style="display:none;" onchange="handlePhotoSelected(event)" />
+      <input type="file" id="galleryPhotoInput" accept="image/*" style="display:none;" onchange="handlePhotoSelected(event)" />
+
+      <div class="camera-dropzone" id="cameraZoneBox">
+        <div class="scanner-laser"></div>
+
+        <!-- Live Video Stream for Instant Camera -->
+        <video id="liveCameraVideo" autoplay playsinline muted style="width:100%; max-height:260px; object-fit:cover; border-radius:14px; display:none; margin-bottom:10px;"></video>
+
+        <div id="cameraPlaceholderUI">
+          <span class="camera-icon">📷</span>
+          <strong style="display:block; font-size:0.96rem;">Khane Ki Live Photo Click Karein</strong>
+          <p style="font-size:0.74rem; color:var(--text-muted); margin-top:4px;">AI photo me har item (Samosa, Roti, Chawal, Sabzi, Egg, Chutney) ko pehchan कर अलग-अलग गिनेगा!</p>
+        </div>
+
+        <img id="photoPreview" class="camera-preview" alt="Food preview" />
+
+        <div style="display:flex; gap:8px; margin-top:12px; justify-content:center; flex-wrap:wrap;">
+          <button type="button" id="openLiveCamBtn" class="btn-sm primary" style="padding:10px 14px; font-size:0.82rem;" onclick="openDirectMobileCamera()">
+            📸 Direct Camera Kholein
+          </button>
+          <button type="button" id="snapLivePhotoBtn" class="btn-sm primary" style="padding:10px 16px; font-size:0.84rem; display:none; background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="captureFromLiveVideo()">
+            🔴 Click Photo Now
+          </button>
+          <button type="button" class="btn-sm" style="padding:10px 14px; font-size:0.8rem;" onclick="document.getElementById('galleryPhotoInput').click()">
+            🖼️ Gallery Se Chunein
+          </button>
+        </div>
+      </div>
+
+      <div style="margin-bottom:10px;">
+        <span style="font-size:0.74rem; color:#94a3b8; font-weight:700;">⚡ Thali Me Kya-Kya Hai? (Tap karke jodein ya likhein):</span>
+        <div class="thali-chip-grid">
+          <button type="button" class="thali-chip" onclick="appendPhotoChip('2 Roti')">+ 2 Roti</button>
+          <button type="button" class="thali-chip" onclick="appendPhotoChip('1 Katori Chawal')">+ 1 Katori Chawal</button>
+          <button type="button" class="thali-chip" onclick="appendPhotoChip('1 Katori Dal')">+ 1 Katori Dal</button>
+          <button type="button" class="thali-chip" onclick="appendPhotoChip('Lauki/Hari Sabzi')">+ Hari Sabzi</button>
+          <button type="button" class="thali-chip" onclick="appendPhotoChip('1 Glass Sattu')">+ Sattu</button>
+          <button type="button" class="thali-chip" onclick="appendPhotoChip('3 Boiled Egg')">+ 3 Egg</button>
+          <button type="button" class="thali-chip" onclick="appendPhotoChip('2 Pc Fish Curry')">+ 2 Pc Machhli</button>
+          <button type="button" class="thali-chip" onclick="appendPhotoChip('Chicken Curry')">+ Chicken</button>
+          <button type="button" class="thali-chip" onclick="appendPhotoChip('Salad & Dahi')">+ Salad/Dahi</button>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:8px; margin-bottom:10px;">
+        <input type="text" id="photoNoteInput" class="input-field" style="margin-bottom:0;" placeholder="E.g. 2 roti, 1 katori dal, 3 egg..." />
+        <button type="button" id="voiceLogBtn" class="btn-sm primary" style="flex:0 0 110px; font-size:0.78rem;" onclick="startVoiceFoodLog()">
+          🎙️ Bol Kar Log
+        </button>
+      </div>
+
+      <button id="analyzePhotoBtn" class="btn-full" onclick="analyzeFoodPhoto()">
+        ✨ Photo Dekh Kar Exact Items & Calories Ginein
+      </button>
+
+      <!-- AI Result Box -->
+      <div id="aiScanResult" style="display:none; margin-top:14px; padding:14px; border-radius:16px; background:var(--card-alt); border:1px solid var(--primary);">
+      </div>
+    </section>
+
+    <!-- Instant Bihar / UP Desi Village Food Database -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">🌾 Desi Ghar Ka Khana (1-Tap Add)</span>
+      </div>
+      <div class="chip-filter">
+        <button class="chip active" onclick="filterFoodCategory('all', this)">Sabhi</button>
+        <button class="chip" onclick="filterFoodCategory('best', this)">✅ Superfoods</button>
+        <button class="chip" onclick="filterFoodCategory('nonveg', this)">🍗 Egg / Fish / Chicken</button>
+        <button class="chip" onclick="filterFoodCategory('warn', this)">⚠️ High Calorie Alert</button>
+      </div>
+      <div id="desiFoodDatabaseList" class="food-list">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- TAB 3: DAILY INDIAN VILLAGE DIET PLAN (WITH 10 ALTERNATES PER MEAL) -->
+  <main id="tab-diet" class="tab-content">
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">🍲 Daily Desi Diet Plan (Mon–Sun)</span>
+        <span class="badge badge-green">10 Options/Meal</span>
+      </div>
+      <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:10px;">
+        Har meal ke niche <strong>"🔄 10 Alternate Options"</strong> button diya gaya hai—agar सत्तू ya koi cheez ghar me na ho, toh turant dusra option chunein!
+      </p>
+
+      <div id="daySelectorBar" class="day-selector">
+        <!-- Days populated by JS -->
+      </div>
+
+      <div id="dayMealPlanContainer">
+        <!-- Meals populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- TAB 4: ANIMATED MON-SAT GYM TRAINER -->
+  <main id="tab-gym" class="tab-content">
+    <section class="card hero-card">
+      <div class="card-header">
+        <span class="card-title">🏋️‍♂️ Animated Gym Trainer (Mon–Sat)</span>
+        <span class="badge badge-blue">Live Form Guide</span>
+      </div>
+      <p style="font-size:0.78rem; color:#cbd5e1; margin-bottom:12px;">
+        Har exercise ke saath <strong>Live Animated Motion</strong> aur <strong>Step-by-Step Kaise Karein (Form Guide)</strong> diya gaya hai. Exercise poori karke tick (☑️) karein!
+      </p>
+
+      <div id="gymDaySelectorBar" class="day-selector">
+        <!-- Populated by JS -->
+      </div>
+
+      <div id="gymWorkoutContainer">
+        <!-- Populated by JS with Live SVG Animations -->
+      </div>
+
+      <!-- Sticky 60s Gym Set Rest Timer Bar -->
+      <div id="gymRestTimerBar" class="rest-timer-bar">
+        <div>
+          <strong style="font-size:0.84rem; color:#38bdf8;">⏱️ Set Rest Timer: <span id="restTimerCount">60s</span></strong>
+          <div style="font-size:0.7rem; color:#cbd5e1;">Gehri saans lein, agle set ke liye taiyar!</div>
+        </div>
+        <div style="display:flex; gap:6px;">
+          <button type="button" class="btn-sm primary" onclick="startGymRestTimer(60)">🔄 60s</button>
+          <button type="button" class="btn-sm danger" onclick="stopGymRestTimer()">✖</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIAL BELLY FAT TUCK-IN MODULE: STOMACH VACUUM & 10-MIN CORE BURNER -->
+    <section class="belly-finisher-card">
+      <div class="card-header">
+        <span class="card-title">🔥 Pet Andar Karne Ka Special Belly Finisher</span>
+        <span class="badge badge-amber">Daily 10 Min</span>
+      </div>
+      <p style="font-size:0.78rem; color:#fde68a; margin-bottom:10px;">
+        Rana bhai, bahar nikla hua pet (Visceral Fat & Loose Transverse Abdominis) andar karne ke liye har roz Gym ke aakhir me ya subah khali pet ye <strong>Stomach Vacuum + 4 Core Burners</strong> zaroor karein!
+      </p>
+
+      <!-- Interactive Stomach Vacuum Trainer -->
+      <div style="background:rgba(0,0,0,0.35); border-radius:16px; padding:12px; text-align:center; margin-bottom:12px;">
+        <h4 style="font-size:0.88rem; color:#34d399;">🌪️ Live Stomach Vacuum Trainer (कमर 2-3 इंच अंदर खींचे)</h4>
+        <div id="vacuumCircle" class="vacuum-ring-box">
+          <span id="vacuumPhaseTitle" style="font-size:0.95rem; font-weight:800; color:#fff;">Ready?</span>
+          <span id="vacuumTimerNum" style="font-size:1.5rem; font-weight:800; color:#34d399;">20s</span>
+          <span id="vacuumSubHint" style="font-size:0.68rem; color:#cbd5e1; padding:0 8px;">Saans bahar chhod kar pet andar khinchein</span>
+        </div>
+        <button type="button" id="startVacuumBtn" class="btn-full" style="background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="startStomachVacuumSession()">
+          🌪️ Start 20-Sec Stomach Vacuum Hold (3 Rounds)
+        </button>
+      </div>
+
+      <!-- Mandatory Daily Belly Fat Burner Circuit -->
+      <div id="bellyBurnerCircuitList">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">⚡ Pre & Post-Workout Desi Fuel</span>
+      </div>
+      <div class="meal-slot" style="border-left-color:#f59e0b;">
+        <div class="meal-slot-header"><span style="color:#fbbf24;">⚡ GYM SE 30 MIN PEHLE</span><span>Energy Boost</span></div>
+        <h4>1 कप ब्लैक कॉफी (बिना चीनी) या 1 मुट्ठी भुना चना</h4>
+        <p>जिम में भारी वेट उठाने और दोगुनी तेजी से फैट बर्न करने में मदद करेगा।</p>
+      </div>
+      <div class="meal-slot" style="margin-bottom:0;">
+        <div class="meal-slot-header"><span>💪 GYM KE TURANT BAAD</span><span>24g Pure Protein</span></div>
+        <h4>3-4 उबले अंडे का सफेद भाग + 1 गिलास नमकीन सत्तू</h4>
+        <p>मसल्स रिकवरी और तेज़ फैट लॉस के लिए सबसे शुद्ध देसी पोस्ट-वर्कआउट मील।</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- TAB 5: QUIT SMOKING & LUNG RECOVERY -->
+  <main id="tab-smoke" class="tab-content">
+    <section class="card hero-card">
+      <div class="card-header">
+        <span class="card-title">🚭 Smoke-Free & Stamina Coach</span>
+        <span class="badge badge-green">Lung Recovery</span>
+      </div>
+      <p style="font-size:0.79rem; color:#cbd5e1; margin-bottom:12px;">
+        Jab bhi cigarette ki talab lage, niche <strong>5-Min Craving Rescue</strong> dabayein aur animated circle ke saath gehri saans lein.
+      </p>
+
+      <!-- Dynamic Animated Breathe In / Hold / Breathe Out Guide -->
+      <div class="breathe-stage-wrap">
+        <div id="breatheAura" class="breathe-outer-aura"></div>
+        <div id="lungBreatheVisual" class="breathe-core-orb">
+          <span id="breatheEmoji" style="font-size:1.4rem;">🌬️</span>
+          <strong id="breatheActionLabel" style="font-size:1.02rem; color:#fff; letter-spacing:0.5px;">BREATHE IN</strong>
+          <span id="breatheSecCount" style="font-size:0.78rem; color:#6ee7b7; font-weight:800;">4 Sec • नाक से सांस लें</span>
+        </div>
+      </div>
+
+      <div class="quick-grid" style="margin-bottom:12px;">
+        <div class="quick-box">
+          <h4>💰 Money Saved</h4>
+          <div class="quick-val" style="color:#34d399;">₹<span id="smokeMoneySaved">0</span></div>
+          <p style="font-size:0.72rem;color:var(--text-muted);">₹18 / cigarette saved</p>
+        </div>
+        <div class="quick-box">
+          <h4>🛡️ Cravings Won</h4>
+          <div class="quick-val" style="color:#38bdf8;"><span id="cravingsDefeatedCount">0</span> Times</div>
+          <p style="font-size:0.72rem;color:var(--text-muted);">+11 min life gained each</p>
+        </div>
+      </div>
+
+      <button class="btn-full" onclick="startCravingTimer()">
+        🚨 Abhi Talab Lag Rahi Hai! (Start 5-Min Rescue)
+      </button>
+
+      <div id="cravingTimerBox" style="display:none; margin-top:12px; padding:14px; border-radius:16px; background:#050914; border:1px solid #38bdf8; text-align:center;">
+        <h3 id="cravingCountdown" style="font-size:2.1rem; color:#38bdf8; margin-bottom:6px;">05:00</h3>
+        <p style="font-size:0.82rem; color:#e2e8f0;">
+          Abhi 1 glass paani piyein aur munh me <strong>भुनी सौंफ, इलायची ya लौंग</strong> rakhein. Upar wale circle ke saath 4 second saans andar lein, 4 second chhodein!
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- SETTINGS & NOTIFICATION MODAL -->
+  <div id="settingsModal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="card-header">
+        <span class="card-title">⚙️ AI Key & Smart Notifications</span>
+        <button class="btn-sm" style="flex:0 0 auto;" onclick="closeSettingsModal()">✖</button>
+      </div>
+
+      <label style="font-size:0.78rem; color:var(--text-muted); display:block; margin-bottom:4px;">
+        🔑 Gemini AI API Key (Photo se exact Rotiyan, Katori & Piece ginne ke liye)
+      </label>
+      <input type="password" id="geminiApiKeyInput" class="input-field" placeholder="Paste Gemini API Key (AIzaSy...)" />
+      <p style="font-size:0.72rem; color:#38bdf8; margin-bottom:10px;">
+        👉 Free Key yahan se 10 second me lein: <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" style="color:#34d399;font-weight:800;">Google AI Studio (Get Free API Key) ↗</a>
+      </p>
+
+      <label style="font-size:0.78rem; color:var(--text-muted); display:block; margin-bottom:4px;">
+        🎯 Daily Calorie Target (Default: 1650 kcal for 90kg ➔ 70kg)
+      </label>
+      <input type="number" id="customCalTargetInput" class="input-field" value="1650" />
+
+      <div style="margin: 12px 0;">
+        <button class="btn-full" style="background:linear-gradient(135deg,#0ea5e9,#2563eb);" onclick="enablePushNotifications()">
+          🔔 Daily Meal & Live Calorie Notification Chalu Karein
+        </button>
+        <button class="btn-sm" style="width:100%; margin-top:8px;" onclick="sendTestNotification()">
+          📲 Test Notification Bhejein
+        </button>
+      </div>
+
+      <button class="btn-full" onclick="saveSettings()">💾 Save Settings</button>
+    </div>
+  </div>
+
+  <!-- 10 ALTERNATE FOOD OPTIONS MODAL -->
+  <div id="alternatesModal" class="modal-backdrop">
+    <div class="modal-box" style="max-width:450px;">
+      <div class="card-header">
+        <span id="altModalTitle" class="card-title">🔄 10 Alternate Desi Options</span>
+        <button class="btn-sm" style="flex:0 0 auto;" onclick="closeAlternatesModal()">✖</button>
+      </div>
+      <p style="font-size:0.76rem; color:var(--text-muted);">
+        Agar pehla item ghar me nahi hai, toh in <strong>10 barabar sehatmand Desi options</strong> me se jo ghar me uplabdh ho use chunein:
+      </p>
+      <div id="altOptionsList" class="alt-list-box">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE EXACT STEP-BY-STEP & VIDEO/GIF MODAL -->
+  <div id="exerciseDetailModal" class="modal-backdrop">
+    <div class="modal-box" style="max-width:460px; max-height:90vh; overflow-y:auto;">
+      <div class="card-header">
+        <span id="exModalTitle" class="card-title">🏋️ Exercise Coach</span>
+        <button class="btn-sm" style="flex:0 0 auto;" onclick="closeExerciseModal()">✖</button>
+      </div>
+      <div id="exModalContent">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING ASK AI COACH BUTTON & MODAL -->
+  <button class="fab-ai-coach" onclick="openAICoachModal()">
+    🤖 Ask Coach
+  </button>
+
+  <div id="aiCoachModal" class="modal-backdrop">
+    <div class="modal-box" style="max-width:440px;">
+      <div class="card-header">
+        <span class="card-title">🤖 Ask Pratap FitAI Coach</span>
+        <button class="btn-sm" style="flex:0 0 auto;" onclick="closeAICoachModal()">✖</button>
+      </div>
+      <p style="font-size:0.76rem; color:var(--text-muted); margin-bottom:8px;">
+        Koi bhi sawal poochein (e.g. "Pet jaldi andar kaise karein?", "Shaadi me kya khau?", "Gym ke baad dard ho raha hai"):
+      </p>
+      <div id="aiCoachReplyBox" style="background:rgba(0,0,0,0.35); padding:11px; border-radius:12px; font-size:0.8rem; color:#e2e8f0; margin-bottom:10px; max-height:220px; overflow-y:auto;">
+        👋 नमस्ते राणा भाई! मैं आपका पर्सनल AI कोच हूँ। आज के खाने, जिम या बेली फैट के बारे में कुछ भी पूछें!
+      </div>
+      <div style="display:flex; gap:6px;">
+        <input type="text" id="aiCoachQuestionInput" class="input-field" style="margin-bottom:0;" placeholder="Apna sawal likhein..." />
+        <button class="btn-sm primary" style="flex:0 0 85px;" onclick="askAICoachQuestion()">Poochhein</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5-Tab Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="switchTab('tab-home', this)">
+      <span class="nav-icon">🏠</span>
+      <span>Home</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('tab-camera', this)">
+      <span class="nav-icon">📸</span>
+      <span>AI Scan</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('tab-diet', this)">
+      <span class="nav-icon">🍲</span>
+      <span>Desi Diet</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('tab-gym', this)">
+      <span class="nav-icon">🏋️</span>
+      <span>Gym Guide</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('tab-smoke', this)">
+      <span class="nav-icon">🚭</span>
+      <span>Smoke-Free</span>
+    </button>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.17.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1/dist/mobilenet.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
