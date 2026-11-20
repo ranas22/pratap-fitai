@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pratap-fitai-offline-v5';
+const CACHE_NAME = 'pratap-fitai-offline-v6';
 const ASSETS = [
   './',
   './index.html',

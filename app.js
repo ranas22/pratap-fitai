@@ -198,257 +198,179 @@ const DAILY_REMINDER_SLOTS = [
 const WEEKLY_GYM_PLAN = [
   {
     day: 'सोमवार (Mon)',
-    title: 'Chest + Triceps + 20 Min Stationary Cycling',
-    burn: 340,
-    focus: 'Upper Body Push & Belly Fat Burn (No Treadmill)',
+    title: 'Lower Belly Attack + Chest + Stationary Cycling',
+    burn: 380,
+    focus: 'Lower Belly Pooch (निचला निकला पेट) अंदर करना + Upper Push',
     exercises: [
-      { id: 'mon_1', type: 'run', name: 'Warm-up: 5 Min Stationary Cycling + Push-ups', sets: '2 Sets × 15 Reps', how: '5 मिनट साइकिल चलाकर शरीर गर्म करें, फिर घुटने या पंजे पर शरीर सीधा रखकर पुश-अप्स लगाएं।' },
-      { id: 'mon_2', type: 'press', name: 'Flat Bench Press / Dumbbell Press', sets: '4 Sets × 10-12 Reps', how: 'बेंच पर पीठ टिकाएं, बारबेल/डंबल को छाती के बीच तक धीरे नीचे लाएं और सांस छोड़ते हुए ऊपर पुश करें।' },
-      { id: 'mon_3', type: 'press', name: 'Incline Dumbbell Press (Upper Chest)', sets: '3 Sets × 12 Reps', how: 'बेंच को 30-45 डिग्री झुकाएं, डंबल को कंधों के पास से सीधा ऊपर उठाएं और ऊपर 1 सेकंड होल्ड करें।' },
-      { id: 'mon_4', type: 'curl', name: 'Pec Deck / Cable Chest Fly', sets: '3 Sets × 15 Reps', how: 'कोहनी हल्की मुड़ी रखें, दोनों हाथों को छाती के सामने मिलाकर सीने को स्क्वीज़ (चोब) करें।' },
-      { id: 'mon_5', type: 'curl', name: 'Tricep Rope Pushdown', sets: '3 Sets × 12-15 Reps', how: 'कोहनी कमर से चिपका कर रखें, केवल हाथ के निचले हिस्से से रस्सी नीचे खींचें।' },
-      { id: 'mon_6', type: 'press', name: 'Overhead Dumbbell Tricep Extension', sets: '3 Sets × 12 Reps', how: 'सिर के पीछे दोनों हाथों से 1 डंबल पकड़ें, कोहनी अंदर रखकर डंबल ऊपर उठाएं।' },
-      { id: 'mon_7', type: 'run', name: '🔥 Cardio Finisher: 20 Min Stationary Cycling + High Knees', sets: '15 Min Cycle + 5 Min High Knees', how: 'मीडियम रेजिस्टेंस पर 15 मिनट तेज़ साइकिल चलाएं, फिर खड़े होकर 5 मिनट हाई-नीज़ (जगह पर घुटने ऊपर उठाते हुए मार्च) करें!' }
+      { id: 'mon_1', type: 'core', name: '🔥 Belly Start: Lying Flat Bench Leg Raises (निचला पेट)', sets: '4 Sets × 15 Reps', how: 'बेंच या मैट पर लेटकर हाथ कूल्हों के नीचे रखें, दोनों पैर सीधे 90 डिग्री उठाएं और धीरे नीचे लाएं (ज़मीन छुए बिना)।' },
+      { id: 'mon_2', type: 'core', name: '🔥 Belly Tuck: Reverse Crunches (Lower Abs Pull-In)', sets: '4 Sets × 15 Reps', how: 'पीठ के बल लेटकर घुटनों को छाती की तरफ मोड़ें और कूल्हे ज़मीन से 2 इंच ऊपर उठाकर निचले पेट को निचोड़ें।' },
+      { id: 'mon_3', type: 'core', name: '🔥 Deep Belly Belt: Stomach Vacuum Hold', sets: '3 Sets × 20 Sec', how: 'पूरी सांस बाहर छोड़कर पेट (नाभि) को रीढ़ की हड्डी की तरफ पूरा अंदर खींचकर 20 सेकंड रोकें।' },
+      { id: 'mon_4', type: 'press', name: 'Flat Bench Press / Dumbbell Press', sets: '3 Sets × 12 Reps', how: 'बेंच पर पीठ टिकाएं, डंबल/बारबेल छाती तक लाएं और सांस छोड़ते हुए ऊपर पुश करें।' },
+      { id: 'mon_5', type: 'press', name: 'Incline Dumbbell Press + Tricep Rope Pushdown', sets: '3 Sets × 12 Reps', how: 'अपर चेस्ट और ट्राइसेप्स का सुपरसेट — बिना ज़्यादा आराम के करें ताकि हार्ट रेट हाई रहे।' },
+      { id: 'mon_6', type: 'core', name: '🔥 Forearm Plank (Pet Tight Lock)', sets: '3 Sets × 60 Sec', how: 'कोहनी और पंजों पर शरीर सीधा रखें और पेट लटकने न दें।' },
+      { id: 'mon_7', type: 'run', name: '🚴 Cardio Finisher: 20 Min Stationary Cycling (Interval)', sets: '15 Min Cycle + 5 Min High Knees', how: '1 मिनट तेज़ साइकिल + 1 मिनट मीडियम साइकिल, फिर 5 मिनट खड़े होकर घुटने छाती तक उठाते हुए High Knees मार्च करें।' }
     ]
   },
   {
     day: 'मंगलवार (Tue)',
-    title: 'Back + Biceps + Belly Core & Cycling',
-    burn: 360,
-    focus: 'V-Shape Back & Belly Fat Melting',
+    title: 'Side Belly & Love Handles + Back V-Taper',
+    burn: 390,
+    focus: 'कमर के दोनों तरफ की चर्बी (Side Fat) छांटना + Back Pull',
     exercises: [
-      { id: 'tue_1', type: 'press', name: 'Lat Pulldown (Wide Grip)', sets: '4 Sets × 12 Reps', how: 'बार को कंधों से चौड़ा पकड़ें, सीना बाहर निकालकर बार को ठोड़ी (Chin) के नीचे तक खींचें।' },
-      { id: 'tue_2', type: 'curl', name: 'Seated Cable Row / Dumbbell Row', sets: '4 Sets × 10-12 Reps', how: 'कमर एकदम सीधी रखें, हैंडल को पेट (नाभि) की तरफ खींचें और पीठ की मसल्स को दबाएं।' },
-      { id: 'tue_3', type: 'curl', name: 'Face Pulls (Rear Delt & Posture)', sets: '3 Sets × 15 Reps', how: 'केबल रोप को माथे/आँखों की तरफ खींचें और कोहनी पीछे ले जाएं।' },
-      { id: 'tue_4', type: 'curl', name: 'Barbell / EZ-Bar Bicep Curl', sets: '3 Sets × 12 Reps', how: 'सीधे खड़े हों, बिना कमर हिलाए बार को छाती की तरफ मोड़ें और धीरे नीचे लाएं।' },
-      { id: 'tue_5', type: 'curl', name: 'Hammer Curls (Dumbbell)', sets: '3 Sets × 12 Reps', how: 'डंबल को हथौड़े की तरह सीधा पकड़ें और बारी-बारी कंधे तक उठाएं।' },
-      { id: 'tue_6', type: 'core', name: 'Plank Hold + Mountain Climbers', sets: '3 Sets × 45 Sec', how: 'कोहनी और पंजों पर शरीर को तख्ते (Plank) की तरह सीधा रखें, पेट अंदर खींचकर रखें।' },
-      { id: 'tue_7', type: 'run', name: '🔥 Cardio Finisher: 20 Min Stationary Bike (Interval Mode)', sets: '20 Mins Non-stop', how: '1 मिनट तेज़ पैडल मारें + 1 मिनट नॉर्मल पैडल — यह बिना ट्रेडमिल के पेट की चर्बी सबसे तेज़ गलाता है।' }
+      { id: 'tue_1', type: 'core', name: '🔥 Belly Start: Air Bike / Bicycle Crunches', sets: '4 Sets × 20 Reps', how: 'पीठ के बल लेटकर हवा में साइकिल चलाते हुए दाईं कोहनी को बाएं घुटने और बाईं कोहनी को दाएं घुटने से टच करें।' },
+      { id: 'tue_2', type: 'core', name: '🔥 Side Waist: Russian Twists (Plate/Dumbbell लेकर)', sets: '4 Sets × 20 Twists', how: 'मैट पर बैठकर हल्का पीछे झुकें और दोनों हाथों में 5kg प्लेट लेकर कमर को दाएं-बाएं घुमाएं।' },
+      { id: 'tue_3', type: 'core', name: '🔥 Upper Belly: Kneeling Cable Rope Crunch', sets: '4 Sets × 15 Reps', how: 'केबल मशीन के नीचे घुटनों पर बैठें, रस्सी सिर के पास पकड़ें और पेट की ताकत से कोहनी घुटनों की तरफ मोड़ें।' },
+      { id: 'tue_4', type: 'press', name: 'Wide-Grip Lat Pulldown (V-Shape Back)', sets: '3 Sets × 12 Reps', how: 'पीठ चौड़ी होने से कमर तुरंत पतली दिखती है। बार को ठोड़ी के नीचे तक खींचें।' },
+      { id: 'tue_5', type: 'curl', name: 'Seated Cable Row + Barbell Bicep Curl', sets: '3 Sets × 12 Reps', how: 'कमर सीधी रखकर हैंडल नाभि की तरफ खींचें, फिर बाइसेप कर्ल करें।' },
+      { id: 'tue_6', type: 'core', name: '🔥 Alternate Heel Touchers (Side Oblique Pinch)', sets: '3 Sets × 25 Reps', how: 'पीठ के बल लेटकर घुटने मोड़ें और बारी-बारी दोनों हाथों से अपनी एड़ियों को छूएं।' },
+      { id: 'tue_7', type: 'run', name: '🚴 Cardio Finisher: 20 Min Stationary Bike Sprint', sets: '20 Mins Non-stop', how: 'पेट को अंदर खींचकर बैठें और 20 मिनट लगातार तेज़ साइकिल चलाएं।' }
     ]
   },
   {
     day: 'बुधवार (Wed)',
-    title: 'Legs + Lower Body (Max Calorie Burner)',
-    burn: 420,
-    focus: '90kg ➔ 70kg Biggest Fat-Burn Day',
+    title: 'Deep Belly Visceral Fat Burner + Legs Compound',
+    burn: 430,
+    focus: 'बड़ी मसल्स से 2x कैलोरी बर्न + तोंद (Pot Belly) गलाना',
     exercises: [
-      { id: 'wed_1', type: 'squat', name: 'Bodyweight Free Squats Warm-up', sets: '2 Sets × 15 Reps', how: 'पैर कंधे जितने चौड़े रखें, कुर्सी पर बैठने की तरह कूल्हे पीछे ले जाते हुए नीचे बैठें और उठें।' },
-      { id: 'wed_2', type: 'squat', name: 'Goblet Squats / Barbell Squats', sets: '4 Sets × 10-12 Reps', how: 'छाती के पास डंबल पकड़ें, कमर सीधी रखकर जांघें जमीन के समानांतर आने तक बैठें और एड़ी से ज़ोर लगाकर उठें।' },
-      { id: 'wed_3', type: 'squat', name: 'Leg Press Machine', sets: '4 Sets × 12-15 Reps', how: 'पैरों को प्लेटफॉर्म के बीच में रखें, घुटनों को 90 डिग्री तक मोड़ें और ऊपर पुश करें (घुटने लॉक न करें)।' },
-      { id: 'wed_4', type: 'curl', name: 'Leg Extension + Hamstring Curl', sets: '3 Sets × 12-15 Reps', how: 'मशीन पर बैठकर पंजों से वेट को सीधा ऊपर उठाएं, ऊपर 1 सेकंड रोकें फिर धीरे नीचे लाएं।' },
-      { id: 'wed_5', type: 'press', name: 'Standing Calf Raises', sets: '4 Sets × 18 Reps', how: 'पंजों के बल एड़ी को जितना हो सके ऊपर उठाएं और पिंडलियों (Calves) को टाइट करें।' },
-      { id: 'wed_6', type: 'run', name: '🔥 Cardio: 15 Min Smooth Stationary Bike', sets: 'Low Joint Impact', how: 'लेग्स वर्कआउट के बाद घुटनों को आराम देते हुए 15 मिनट हल्की साइकिल चलाएं।' }
+      { id: 'wed_1', type: 'core', name: '🔥 Belly Start: Hanging Knee / Leg Raises', sets: '4 Sets × 12-15 Reps', how: 'बार से लटककर या कैप्टन चेयर पर दोनों घुटनों को छाती तक ऊपर उठाएं — बाहर निकला पेट अंदर करने का ब्रह्मास्त्र!' },
+      { id: 'wed_2', type: 'core', name: '🔥 Belly Wheel: Ab Roller / Barbell Ab Rollout (घुटनों पर)', sets: '3 Sets × 12 Reps', how: 'घुटनों पर बैठकर Ab Wheel या बारबेल को आगे रोल करें और पेट की ताकत से वापस खींचें।' },
+      { id: 'wed_3', type: 'squat', name: 'Goblet Squats (छाती के पास डंबल पकड़कर)', sets: '4 Sets × 12 Reps', how: 'सामने भारी डंबल पकड़ने से पूरा पेट (Core) टाइट रहता है और सबसे ज़्यादा फैट जलता है।' },
+      { id: 'wed_4', type: 'squat', name: 'Leg Press Machine + Calf Raises', sets: '3 Sets × 15 Reps', how: 'पैरों से प्लेटफॉर्म ऊपर पुश करें (ऊपर घुटने लॉक न करें)।' },
+      { id: 'wed_5', type: 'core', name: '🔥 Flat Bench Leg Pull-In (Seated Knee Tucks)', sets: '4 Sets × 15 Reps', how: 'बेंच के किनारे बैठकर पीछे हाथ टिकाएं, पैर सीधे आगे फैलाएं और घुटनों को सीने की तरफ खींचें।' },
+      { id: 'wed_6', type: 'run', name: '🚴 Cardio: 20 Min Stationary Bike (Fat Burn Zone)', sets: '20 Mins Smooth', how: 'लेग्स और कोर के बाद 20 मिनट साइकिल चलाकर जमा हुआ फैट पिघलाएं।' }
     ]
   },
   {
     day: 'गुरुवार (Thu)',
-    title: 'Shoulders + Traps + Belly Core Sculpt',
-    burn: 340,
-    focus: '3D Broad Shoulders & Waist Trim',
+    title: 'Waist Shrinker Core + Shoulders Sculpt',
+    burn: 380,
+    focus: 'कमर के इंच (38" ➔ 32") घटाना + कंधे चौड़े करना',
     exercises: [
-      { id: 'thu_1', type: 'press', name: 'Seated Dumbbell Shoulder Press', sets: '4 Sets × 10-12 Reps', how: 'बेंच पर 90 डिग्री बैठें, कानों के पास से डंबल को सीधा सिर के ऊपर पुश करें।' },
-      { id: 'thu_2', type: 'press', name: 'Dumbbell Lateral Raises (Side Delt)', sets: '4 Sets × 15 Reps', how: 'हल्के डंबल लेकर दोनों हाथों को बगल से कंधे की ऊंचाई तक पंख की तरह उठाएं।' },
-      { id: 'thu_3', type: 'curl', name: 'Front Dumbbell / Cable Raises', sets: '3 Sets × 12 Reps', how: 'डंबल को जांघों के सामने से सीधा आंखों की सीध तक ऊपर उठाएं।' },
-      { id: 'thu_4', type: 'press', name: 'Dumbbell Shrugs (Traps)', sets: '3 Sets × 15 Reps', how: 'भारी डंबल हाथ में लटकाकर कंधों को कानों की तरफ ऊपर उचकाएं और 1 सेकंड रोकें।' },
-      { id: 'thu_5', type: 'core', name: 'Hanging Knee Raises / Lying Leg Raises + Plank', sets: '3 Sets × 15 Reps', how: 'पेट की निचली चर्बी के लिए घुटनों को छाती की तरफ मोड़ें या मैट पर लेग रेज़ करें।' },
-      { id: 'thu_6', type: 'run', name: '🔥 Cardio Finisher: 20 Min Stationary Cycling + Jumping Jacks', sets: '15 Min Cycle + 3x40 Jacks', how: '15 मिनट तेज़ साइकिल चलाएं और 3 सेट जम्पिंग जैक्स या स्टेप-अप्स करें।' }
+      { id: 'thu_1', type: 'core', name: '🔥 Belly Start: Standing Cable Wood Chop (कमर घुमाना)', sets: '4 Sets × 15 Reps/Side', how: 'केबल को ऊपर से तिरछा नीचे घुटने की तरफ खींचें — यह पेट के साइड और बीच की चर्बी को मक्खन की तरह काटता है!' },
+      { id: 'thu_2', type: 'core', name: '🔥 Jackknife Sit-Ups (V-Ups - Upper & Lower Belly)', sets: '3 Sets × 15 Reps', how: 'मैट पर सीधे लेटकर हाथ और पैर एक साथ ऊपर उठाएं और बीच में पंजों को छूने की कोशिश करें।' },
+      { id: 'thu_3', type: 'core', name: '🔥 Stomach Vacuum + Forearm Plank Combo', sets: '3 Sets × 45 Sec', how: 'पहले 20 सेकंड पेट अंदर खींचकर वैक्यूम करें, फिर तुरंत 45 सेकंड प्लैंक होल्ड करें।' },
+      { id: 'thu_4', type: 'press', name: 'Seated Dumbbell Shoulder Press', sets: '3 Sets × 12 Reps', how: 'बेंच पर सीधे बैठकर कानों के पास से डंबल को सीधा सिर के ऊपर पुश करें।' },
+      { id: 'thu_5', type: 'press', name: 'Dumbbell Side Lateral Raises + Shrugs', sets: '3 Sets × 15 Reps', how: 'कंधे चौड़े होने से पेट और कमर का V-शेप तुरंत निखरकर आता है।' },
+      { id: 'thu_6', type: 'run', name: '🚴 Cardio Finisher: 20 Min Stationary Cycling + Jumping Jacks', sets: '15 Min Cycle + 3x40 Jacks', how: '15 मिनट तेज़ साइकिल चलाएं और 3 सेट जम्पिंग जैक्स करें।' }
     ]
   },
   {
     day: 'शुक्रवार (Fri)',
-    title: 'Full Body Belly-Fat HIIT + Core Finisher',
-    burn: 410,
-    focus: 'Weekend Se Pehle Maximum Belly Fat & Calorie Burn',
+    title: 'Extreme Belly-Fat Meltdown HIIT Circuit',
+    burn: 450,
+    focus: 'हफ्ते का सबसे तगड़ा 100% पेट की चर्बी गलाने वाला दिन',
     exercises: [
-      { id: 'fri_1', type: 'press', name: 'Incline Barbell / Dumbbell Press', sets: '3 Sets × 12 Reps', how: 'अपर चेस्ट पर फोकस करते हुए कंट्रोल के साथ वेट नीचे लाएं और तेज़ी से पुश करें।' },
-      { id: 'fri_2', type: 'press', name: 'Close-Grip Lat Pulldown / Seated Row', sets: '3 Sets × 12 Reps', how: 'V-हैंडल को सीने के ऊपरी हिस्से तक खींचें और कोहनी पीछे दबाएं।' },
-      { id: 'fri_3', type: 'squat', name: 'Dumbbell Thrusters (Squat + Overhead Press)', sets: '3 Sets × 12 Reps', how: 'डंबल कंधे पर रखकर स्क्वाट बैठें और उठते ही डंबल सिर के ऊपर प्रेस करें — यह पूरे शरीर की चर्बी निचोड़ देता है!' },
-      { id: 'fri_4', type: 'curl', name: 'Bicep Curl + Tricep Dip Superset', sets: '3 Sets × 12 Reps', how: 'बिना रुके पहले 12 बाइसेप कर्ल करें और तुरंत बेंच डिप्स लगाएं।' },
-      { id: 'fri_5', type: 'core', name: 'Russian Twists + Bicycle Crunches + Kettlebell Swings', sets: '4 Rounds × 40 Sec', how: '40 सेकंड लगातार करें, 20 सेकंड सांस लें — बाहरी और भीतरी पेट की चर्बी के लिए सबसे घातक सर्किट!' },
-      { id: 'fri_6', type: 'run', name: '🔥 Cardio Finisher: 20 Min Fast Stationary Cycling', sets: 'High Burn Finisher', how: 'हफ्ते का आखिरी जिम सेशन — 20 मिनट पूरी ताकत से साइकिल चलाकर पसीना बहाएं! (Sat-Sun Gym Rest + Outdoor Walk)' }
+      { id: 'fri_1', type: 'squat', name: '🔥 Dumbbell Thrusters (Full Body Belly Burner)', sets: '4 Sets × 12 Reps', how: 'कंधे पर डंबल रखकर पूरा स्क्वाट बैठें और उठते ही सिर के ऊपर प्रेस करें — दिल की धड़कन और फैट बर्न तुरंत दोगुना!' },
+      { id: 'fri_2', type: 'core', name: '🔥 Hanging Leg Raises + Reverse Crunch Superset', sets: '4 Sets × 15 Reps', how: 'लटककर घुटने छाती तक उठाएं और तुरंत मैट पर लेटकर 15 रिवर्स क्रंच लगाएं।' },
+      { id: 'fri_3', type: 'core', name: '🔥 Kettlebell / Dumbbell Swings (Hip & Belly Blast)', sets: '4 Sets × 20 Reps', how: 'दोनों हाथों से 1 भारी डंबल या केटलबेल पकड़कर पैरों के बीच से कंधे की ऊंचाई तक स्विंग करें।' },
+      { id: 'fri_4', type: 'core', name: '🔥 Cable Rope Crunch + Russian Twists', sets: '4 Sets × 20 Reps', how: 'ऊपरी पेट और साइड कमर का नॉन-स्टॉप सुपरसेट।' },
+      { id: 'fri_5', type: 'press', name: 'Incline Dumbbell Press + Close-Grip Lat Pulldown', sets: '3 Sets × 12 Reps', how: 'अपर बॉडी मसल्स को टोन रखने के लिए तेज़ सुपरसेट।' },
+      { id: 'fri_6', type: 'run', name: '🚴 Cardio Finisher: 25 Min Stationary Cycling HIIT', sets: '25 Mins Max Sweat', how: 'हफ्ते का आखिरी जिम सेशन — 25 मिनट पूरी ताकत से साइकिल चलाकर पेट की चर्बी निचोड़ दें!' }
     ]
   }
 ];
 
 const EXERCISE_DETAILED_GUIDE = {
   mon_1: {
-    muscle: 'Chest, Shoulders & Core Warm-up',
+    muscle: 'Lower Belly Pooch (निचला लटका हुआ पेट)',
     steps: [
-      'Step 1 (Setup): पहले 5 मिनट स्टेशनरी साइकिल (Stationary Bike) चलाएं, फिर दोनों हाथों को आगे-पीछे गोल घुमाएं (Arm Circles)।',
-      'Step 2 (Push-up Position): ज़मीन/मैट पर दोनों हाथ कंधों से थोड़े चौड़े रखें। अगर शुरुआत में मुश्किल लगे तो घुटने ज़मीन पर टिका लें (Knee Push-ups)।',
-      'Step 3 (Action): सांस अंदर लेते हुए छाती को ज़मीन से 2 इंच ऊपर तक नीचे लाएं। कोहनी शरीर से 45 डिग्री पर रखें।',
-      'Step 4 (Finish): सांस छोड़ते हुए हथेलियों से ज़ोर लगाकर वापस ऊपर आएं।'
+      'Step 1 (Setup): फ्लैट बेंच या मैट पर पीठ के बल सीधे लेट जाएं और दोनों हथेलियों को अपने कूल्हों (Hips) के नीचे रख लें ताकि कमर को सपोर्ट मिले।',
+      'Step 2 (Lift Legs): दोनों पैरों को आपस में मिलाकर और घुटने सीधे रखते हुए सांस छोड़ते हुए पैरों को 90 डिग्री (छत की तरफ) ऊपर उठाएं।',
+      'Step 3 (Hold 1 Sec): ऊपर जाकर अपने निचले पेट (Lower Abs) को 1 सेकंड कसकर दबाएं।',
+      'Step 4 (Slow Lower): सांस लेते हुए 3 सेकंड में धीरे-धीरे पैरों को नीचे लाएं, लेकिन एड़ियों को ज़मीन से 2 इंच ऊपर ही रोक लें और अगला रेप उठाएं!'
     ],
-    mistake: 'कमर को नीचे झुकने न दें और गर्दन को सीधा रखें।',
-    ytQuery: 'how+to+do+proper+push+ups+for+beginners+hindi'
+    mistake: 'पैरों को झटके से ऊपर न फेंकें और नीचे एड़ियां ज़मीन पर न पटकें।',
+    ytQuery: 'lying+leg+raises+for+lower+belly+fat+hindi'
   },
   mon_2: {
-    muscle: 'Middle Chest (Pectorals), Front Shoulders & Triceps',
+    muscle: 'Lower Abs & Deep Belly Tuck-In',
     steps: [
-      'Step 1 (Setup): फ्लैट बेंच पर सीधे लेट जाएं। दोनों पैर ज़मीन पर मज़बूती से टिकाएं और आंखों को बारबेल के ठीक नीचे रखें।',
-      'Step 2 (Grip): बारबेल या डंबल को कंधों से थोड़ा चौड़ा पकड़ें। कंधों को पीछे बेंच में दबाकर रखें (Shoulder Blades Retracted)।',
-      'Step 3 (Down Phase - 2 Sec): सांस अंदर लेते हुए वेट को धीरे-धीरे अपनी छाती के बीच (Nipple Line) तक नीचे लाएं।',
-      'Step 4 (Press Phase - 1 Sec): सांस मुँह से छोड़ते हुए वेट को सीधा ऊपर पुश करें और ऊपर सीने को टाइट करें।'
+      'Step 1 (Start): मैट पर पीठ के बल लेटें, घुटनों को 90 डिग्री मोड़ें और हाथ शरीर के बगल में ज़मीन पर रखें।',
+      'Step 2 (Curl Hips): सांस छोड़ते हुए अपने घुटनों को छाती की तरफ लाएं और कूल्हों (Hips) को ज़मीन से 2-3 इंच ऊपर उठाएं।',
+      'Step 3 (Squeeze): सबसे ऊपर नाभि को अंदर खींचकर 1 सेकंड रोकें, फिर धीरे नीचे लाएं।'
     ],
-    mistake: 'बारबेल को छाती पर पटकें (Bounce) नहीं और कलाइयों को पीछे न मोड़ें।',
-    ytQuery: 'flat+bench+press+correct+form+hindi'
+    mistake: 'गर्दन को ऊपर न उठाएं, पूरा लोड निचले पेट पर रखें।',
+    ytQuery: 'reverse+crunches+for+lower+belly+fat+hindi'
   },
   mon_3: {
-    muscle: 'Upper Chest (Clavicular Pectorals)',
+    muscle: 'Transverse Abdominis (पेट को अंदर बांधने वाली बेल्ट मसल)',
     steps: [
-      'Step 1 (Bench Angle): बेंच को 30 से 45 डिग्री के कोण (Incline) पर सेट करें।',
-      'Step 2 (Start): दोनों हाथों में डंबल लेकर जांघों पर रखें और बैठते हुए कंधों के पास ले आएं।',
-      'Step 3 (Down): सांस लेते हुए डंबल को ऊपरी छाती (Collarbone के पास) के बराबर तक धीरे नीचे लाएं।',
-      'Step 4 (Up): सांस छोड़ते हुए दोनों डंबल को छत की तरफ सीधा ऊपर उठाएं (ऊपर आपस में टकराएं नहीं)।'
+      'Step 1 (Exhale All Air): सीधे खड़े हों या पीठ के बल लेटकर मुंह से फेफड़ों की 100% हवा बाहर निकाल दें।',
+      'Step 2 (Suck Belly In): अब बिना सांस लिए अपने पेट और नाभि को रीढ़ की हड्डी (Spine) की तरफ जितना हो सके अंदर खींचें।',
+      'Step 3 (20 Sec Hold): पेट को अंदर लॉक करके 15-20 सेकंड रोकें, फिर सांस लें। बाहर निकली तोंद को अंदर करने का यह नंबर-1 तरीका है!'
     ],
-    mistake: 'बेंच को बहुत ज़्यादा खड़ा (60 डिग्री) न करें वरना लोड चेस्ट की जगह कंधे पर आ जाएगा।',
-    ytQuery: 'incline+dumbbell+press+form+hindi'
-  },
-  mon_4: {
-    muscle: 'Inner & Middle Chest Squeeze',
-    steps: [
-      'Step 1 (Seat): Pec Deck मशीन की सीट को ऐसे सेट करें कि हैंडल आपकी छाती की सीध में रहें।',
-      'Step 2 (Posture): पीठ को पैड से चिपकाएं और कोहनियों को हल्का सा मुड़ा रखें।',
-      'Step 3 (Squeeze): सांस छोड़ते हुए दोनों हाथों को गोलाई में सामने लाएं और बीच में 1 सेकंड रोककर सीने को कसकर दबाएं।',
-      'Step 4 (Return): सांस लेते हुए धीरे-धीरे हाथ वापस पीछे जाने दें जब तक छाती में हल्का खिंचाव न आए।'
-    ],
-    mistake: 'हैंडल को हाथों से धक्का देने के बजाय कोहनियों को पास लाने पर ध्यान दें।',
-    ytQuery: 'pec+deck+chest+fly+machine+form+hindi'
-  },
-  mon_5: {
-    muscle: 'Triceps (Back of Arms)',
-    steps: [
-      'Step 1 (Setup): केबल मशीन के ऊपर रोप (रस्सी) लगाएं और मशीन के सामने सीधे खड़े होकर हल्का आगे झुकें।',
-      'Step 2 (Lock Elbows): अपनी दोनों कोहनियों को कमर की पसलियों से चिपका लें — पूरे सेट में कोहनी अपनी जगह से नहीं हिलेगी!',
-      'Step 3 (Pushdown): सांस छोड़ते हुए रस्सी को नीचे जांघों तक खींचें और सबसे नीचे जाकर रस्सी के दोनों सिरों को बाहर फैलाएं।',
-      'Step 4 (Up): धीरे-धीरे सिर्फ हाथ के निचले हिस्से को छाती के लेवल तक वापस ऊपर आने दें।'
-    ],
-    mistake: 'वजन नीचे दबाने के लिए कंधे या पीठ से झटका न मारें।',
-    ytQuery: 'tricep+rope+pushdown+form+hindi'
-  },
-  mon_6: {
-    muscle: 'Triceps Long Head (Bada Arm Size)',
-    steps: [
-      'Step 1 (Grip): बेंच पर सीधे बैठें और दोनों हाथों की हथेलियों से 1 डंबल को सिर के ऊपर पकड़ें (डायमंड ग्रिप)।',
-      'Step 2 (Elbows In): कोहनियों को कानों के पास अंदर की तरफ रखें, बाहर न फैलने दें।',
-      'Step 3 (Lower): सांस लेते हुए डंबल को सिर के पीछे गर्दन के नीचे तक धीरे ले जाएं।',
-      'Step 4 (Extend): सांस छोड़ते हुए ट्राइसेप्स की ताकत से डंबल को वापस सिर के ऊपर सीधा उठाएं।'
-    ],
-    mistake: 'कमर में ज़्यादा आर्च (मोड़) न बनाएं, पेट टाइट रखें।',
-    ytQuery: 'overhead+dumbbell+tricep+extension+hindi'
-  },
-  mon_7: {
-    muscle: 'Visceral Belly Fat & Heart Stamina (No Treadmill)',
-    steps: [
-      'Step 1 (Seat Height): जिम की स्टेशनरी साइकिल की सीट को अपनी कमर (Hip bone) की ऊंचाई के बराबर सेट करें।',
-      'Step 2 (Interval Pedaling): 15 मिनट तक साइकिल चलाएं — 1 मिनट तेज़ रफ़्तार में और 1 मिनट मीडियम रफ़्तार में।',
-      'Step 3 (Finisher): साइकिल से उतरकर 5 मिनट जगह पर खड़े होकर High Knees (घुटनों को कमर तक ऊपर उठाते हुए मार्च) या Jumping Jacks करें।'
-    ],
-    mistake: 'साइकिल चलाते समय हैंडल पर झुकें नहीं, पीठ सीधी और पेट अंदर खींचकर रखें।',
-    ytQuery: 'stationary+bike+workout+for+belly+fat+loss+hindi'
+    mistake: 'शुरुआत में 10 सेकंड से शुरू करें और हमेशा खाली पेट या वर्कआउट के समय करें।',
+    ytQuery: 'how+to+do+stomach+vacuum+exercise+in+hindi'
   },
   tue_1: {
-    muscle: 'Lats (V-Shape Upper Back)',
+    muscle: 'Full Abs & Side Belly (Obliques)',
     steps: [
-      'Step 1 (Grip): Lat Pulldown बार को कंधों से डेढ़ गुना चौड़ा पकड़ें और सीट पर बैठकर जांघों को पैड के नीचे फंसाएं।',
-      'Step 2 (Lean Back): सीना बाहर निकालें और हल्का सा (15 डिग्री) पीछे झुकें।',
-      'Step 3 (Pull): सांस छोड़ते हुए कोहनियों को नीचे और पीछे दबाते हुए बार को अपनी ठोड़ी (Chin) या अपर चेस्ट तक लाएं।',
-      'Step 4 (Stretch): सांस लेते हुए धीरे-धीरे बार को पूरा ऊपर जाने दें ताकि पीठ की मसल्स खिंचें।'
+      'Step 1 (Position): मैट पर पीठ के बल लेटें, दोनों हाथ कानों के पीछे हल्के से रखें और पैर हवा में उठाएं।',
+      'Step 2 (Pedal & Twist): हवा में साइकिल चलाते हुए अपनी दाईं कोहनी को बाएं घुटने से टच करें, फिर बाईं कोहनी को दाएं घुटने से टच करें।',
+      'Step 3 (Breathing): हर ट्विस्ट पर मुंह से सांस छोड़ते हुए पेट को निचोड़ें।'
     ],
-    mistake: 'बार को गर्दन के पीछे कभी न खींचें (कंधे में चोट लग सकती है) और कमर से झूला न झूलें।',
-    ytQuery: 'lat+pulldown+correct+form+hindi'
+    mistake: 'हाथों से अपनी गर्दन को आगे न खींचें, कंधे और कमर को घुमाएं।',
+    ytQuery: 'bicycle+crunches+proper+form+hindi'
   },
   tue_2: {
-    muscle: 'Middle Back Thickness & Rhomboids',
+    muscle: 'Love Handles (कमर के दोनों तरफ की चर्बी)',
     steps: [
-      'Step 1 (Setup): Seated Cable Row मशीन पर बैठें, पैर फुट-प्लेट पर रखें और घुटने हल्के मुड़े रखें।',
-      'Step 2 (Spine): रीढ़ की हड्डी एकदम सीधी और सीना बाहर रखें।',
-      'Step 3 (Row): सांस छोड़ते हुए V-हैंडल को अपने पेट (नाभि के ठीक ऊपर) तक खींचें और पीछे कंधे की हड्डियों को आपस में मिलाएं।',
-      'Step 4 (Return): 1 सेकंड होल्ड के बाद धीरे-धीरे हाथ आगे सीधा करें।'
+      'Step 1 (Sit & Lean): मैट पर बैठकर घुटने मोड़ें और पीठ को सीधा रखते हुए 45 डिग्री पीछे झुकें।',
+      'Step 2 (Hold Weight): दोनों हाथों से 5kg की प्लेट या 1 डंबल छाती के सामने पकड़ें।',
+      'Step 3 (Twist): पेट टाइट रखकर वेट को पहले दाईं तरफ कमर के बगल में ले जाएं, फिर बाईं तरफ घुमाएं।'
     ],
-    mistake: 'आगे जाते समय अपनी पीठ को गोल (कूबड़) न बनाएं।',
-    ytQuery: 'seated+cable+row+form+hindi'
+    mistake: 'सिर्फ हाथ न घुमाएं, अपने कंधे और पूरे धड़ (Torso) को घुमाएं।',
+    ytQuery: 'russian+twist+for+side+belly+fat+hindi'
   },
   tue_3: {
-    muscle: 'Rear Delts & Upper Back Posture',
+    muscle: 'Upper Belly Fat & Six-Pack Wall',
     steps: [
-      'Step 1 (Setup): केबल पुली को आंखों की ऊंचाई पर सेट करें और रोप (रस्सी) लगाएं।',
-      'Step 2 (Pull): रस्सी को अपने माथे/आंखों की तरफ खींचें और खींचते समय दोनों हाथों को कानों के बगल में फैलाएं।',
-      'Step 3 (Hold): पीछे 1 सेकंड रोककर अपर बैक को स्क्वीज़ करें फिर धीरे वापस छोड़ें।'
+      'Step 1 (Kneel): केबल मशीन के ऊपर रोप (रस्सी) लगाएं और मशीन से 2 फीट दूर घुटनों के बल बैठ जाएं।',
+      'Step 2 (Hold Rope): रस्सी के दोनों सिरों को अपने सिर/माथे के दोनों तरफ पकड़कर लॉक कर लें।',
+      'Step 3 (Crunch Down): सांस छोड़ते हुए पेट की मसल्स से शरीर को नीचे मोड़ें और कोहनियों को घुटनों के पास लाएं।'
     ],
-    mistake: 'बहुत भारी वेट न लगाएं, यह पोस्चर और कंधे की सेहत के लिए है।',
-    ytQuery: 'cable+face+pulls+correct+form+hindi'
+    mistake: 'कूल्हों को पीछे बैठाने के बजाय पेट को गोल मोड़कर क्रंच करें।',
+    ytQuery: 'kneeling+cable+rope+crunch+hindi'
   },
-  tue_4: {
-    muscle: 'Biceps Peak',
+  wed_1: {
+    muscle: 'Lower Belly & Hip Flexors (Sabse Tagda Belly Tucker)',
     steps: [
-      'Step 1 (Stand): सीधे खड़े हों और Barbell या EZ-Bar को कंधों की चौड़ाई पर अंडरहैंड ग्रिप से पकड़ें।',
-      'Step 2 (Elbows Fixed): कोहनियों को कमर के बगल में लॉक करें।',
-      'Step 3 (Curl): सांस छोड़ते हुए केवल बाइसेप्स की ताकत से बार को छाती के लेवल तक ऊपर मोड़ें।',
-      'Step 4 (Lower): 2 सेकंड में धीरे-धीरे बार को पूरा नीचे जांघों तक वापस लाएं।'
+      'Step 1 (Hang / Support): Pull-up बार से लटकें या Captain Chair मशीन पर कोहनियां टिकाकर खड़े हों।',
+      'Step 2 (Raise Knees): सांस छोड़ते हुए दोनों घुटनों को मिलाकर अपनी छाती (Chest) तक ऊपर उठाएं।',
+      'Step 3 (Control Down): ऊपर 1 सेकंड पेट दबाएं और धीरे-धीरे पैर नीचे लाएं (शरीर को झूलने न दें)।'
     ],
-    mistake: 'वजन उठाने के लिए कमर को पीछे न झुकाएं।',
-    ytQuery: 'barbell+bicep+curl+form+hindi'
-  },
-  tue_5: {
-    muscle: 'Brachialis & Forearms (Mota Baju)',
-    steps: [
-      'Step 1 (Neutral Grip): दोनों हाथों में डंबल ऐसे पकड़ें कि हथेलियां एक-दूसरे के आमने-सामने हों (जैसे हथौड़ा पकड़ते हैं)।',
-      'Step 2 (Action): बिना कलाई घुमाए डंबल को कंधे की तरफ ऊपर उठाएं, 1 सेकंड रोकें और धीरे नीचे लाएं।'
-    ],
-    mistake: 'कोहनी को आगे-पीछे न हिलाएं।',
-    ytQuery: 'dumbbell+hammer+curl+form+hindi'
-  },
-  tue_6: {
-    muscle: 'Deep Core & Belly Fat Tightening',
-    steps: [
-      'Step 1 (Plank): मैट पर कोहनियों और पंजों के बल आ जाएं। शरीर सिर से एड़ी तक एक सीधी लाइन में रहे।',
-      'Step 2 (Core Tight): पेट को अंदर खींचें (जैसे कोई पेट में पंच मारने वाला हो) और 45 सेकंड तक नॉर्मल सांस लेते हुए होल्ड करें।'
-    ],
-    mistake: 'कूल्हों को बहुत ऊपर न उठाएं और कमर को नीचे न लटकाएं।',
-    ytQuery: 'how+to+do+plank+correctly+hindi'
+    mistake: 'पैर उठाने के लिए शरीर को आगे-पीछे झूला न झुलाएं।',
+    ytQuery: 'hanging+knee+raises+for+belly+fat+hindi'
   },
   wed_2: {
-    muscle: 'Quads, Glutes & Core (Sabse Bada Calorie Burner)',
+    muscle: 'Entire Abdominal Wall (तोंद अंदर लॉक करने के लिए)',
     steps: [
-      'Step 1 (Stance): दोनों पैरों को कंधों से थोड़ा चौड़ा रखें और पंजों को हल्का सा बाहर (15 डिग्री) की तरफ रखें।',
-      'Step 2 (Grip): एक भारी डंबल को दोनों हाथों से अपनी छाती के ठीक सामने (कप की तरह) पकड़ें।',
-      'Step 3 (Sit Down): सांस अंदर लेते हुए कूल्हों को पीछे धकेलें (जैसे पीछे रखी कुर्सी पर बैठ रहे हों) और घुटने मोड़ते हुए नीचे जाएं।',
-      'Step 4 (Stand Up): जब जांघें ज़मीन के बराबर आ जाएं, तो एड़ियों से ज़मीन को धक्का देते हुए और सांस छोड़ते हुए सीधे खड़े हों।'
+      'Step 1 (On Knees): मैट पर घुटनों के बल आएं और दोनों हाथों से Ab Roller Wheel (या गोल प्लेट लगी बारबेल) पकड़ें।',
+      'Step 2 (Roll Forward): पेट और कूल्हों को टाइट रखते हुए व्हील को धीरे-धीरे आगे रोल करें जब तक शरीर सीधा न हो जाए।',
+      'Step 3 (Pull Back): पेट (Core) की ताकत से व्हील को वापस घुटनों की तरफ खींचें।'
     ],
-    mistake: 'घुटनों को अंदर की तरफ न मुड़ने दें और एड़ी ज़मीन से न उठाएं।',
-    ytQuery: 'goblet+squat+form+hindi'
-  },
-  wed_3: {
-    muscle: 'Thighs (Quadriceps & Hamstrings)',
-    steps: [
-      'Step 1 (Setup): Leg Press मशीन की सीट पर बैठें और पीठ व कूल्हों को पैड से पूरी तरह चिपका लें।',
-      'Step 2 (Foot Placement): पैरों को प्लेटफॉर्म के बीच में कंधे की चौड़ाई पर रखें।',
-      'Step 3 (Lower): सेफ्टी लॉक हटाएं और सांस लेते हुए प्लेटफॉर्म को धीरे नीचे आने दें जब तक घुटने 90 डिग्री न मुड़ जाएं।',
-      'Step 4 (Press): एड़ियों से ज़ोर लगाते हुए वेट को वापस ऊपर पुश करें।'
-    ],
-    mistake: '⚠️ सबसे ज़रूरी: ऊपर जाकर घुटनों को कभी भी 100% सीधा (Lock) न करें, हल्का मुड़ा रखें!',
-    ytQuery: 'leg+press+machine+correct+form+hindi'
+    mistake: 'कमर को नीचे झुकने (Arch) न दें वरना लोअर बैक में दर्द होगा।',
+    ytQuery: 'ab+wheel+roller+workout+for+beginners+hindi'
   },
   thu_1: {
-    muscle: 'Front & Side Shoulders (Deltoids)',
+    muscle: 'Side Waist & Deep Core Rotation',
     steps: [
-      'Step 1 (Setup): बेंच के बैक-सपोर्ट को सीधा (85-90 डिग्री) रखें और दोनों हाथों में डंबल लेकर कानों के लेवल पर लाएं।',
-      'Step 2 (Press): सांस छोड़ते हुए दोनों डंबल को सिर के ऊपर सीधा पुश करें।',
-      'Step 3 (Lower): धीरे-धीरे 2 सेकंड में डंबल को वापस कानों की सीध तक नीचे लाएं।'
+      'Step 1 (Setup): केबल पुली को सबसे ऊपर सेट करें और मशीन के बगल में पैर चौड़े करके खड़े हों।',
+      'Step 2 (Chop): दोनों हाथों से हैंडल पकड़कर ऊपर कंधे से तिरछा (Diagonally) दूसरे घुटने की तरफ लकड़ी काटने की तरह खींचें।',
+      'Step 3 (Switch): 15 रेप्स एक तरफ से करने के बाद दूसरी तरफ घूमकर 15 रेप्स करें।'
     ],
-    mistake: 'कोहनियों को एकदम पीछे न रखें, शरीर से थोड़ा आगे (30 डिग्री) रखें ताकि कंधे के जोड़ सुरक्षित रहें।',
-    ytQuery: 'seated+dumbbell+shoulder+press+form+hindi'
+    mistake: 'हाथों को सीधा रखें और पेट व कमर के घुमाव से वजन खींचें।',
+    ytQuery: 'cable+wood+chop+exercise+hindi'
   },
   thu_2: {
-    muscle: 'Side Shoulders (Chaude Kandhe)',
+    muscle: 'Upper + Lower Belly Simultaneous Burn',
     steps: [
-      'Step 1 (Light Weight): इसमें हमेशा हल्का डंबल चुनें (5kg - 7.5kg)। सीधे खड़े होकर डंबल जांघों के बगल में रखें।',
-      'Step 2 (Raise): कोहनी हल्की मुड़ी रखकर दोनों हाथों को बगल से कंधे की ऊंचाई तक ऊपर उठाएं (जैसे पानी का जग उंडेल रहे हों)।',
-      'Step 3 (Control): धीरे-धीरे नीचे लाएं।'
+      'Step 1 (Lie Flat): मैट पर सीधे लेटें और दोनों हाथ सिर के पीछे सीधे फैलाएं।',
+      'Step 2 (V-Shape): सांस छोड़ते हुए पैर और धड़ को एक साथ ऊपर उठाएं ताकि शरीर V-आकार में आ जाए और हाथों से पंजों को छूएं।',
+      'Step 3 (Lower): धीरे-धीरे वापस नीचे जाएं।'
     ],
-    mistake: 'झटका मारकर डंबल ऊपर न फेंकें।',
-    ytQuery: 'dumbbell+lateral+raises+form+hindi'
+    mistake: 'अगर सीधे पैर कठिन लगें तो घुटने हल्के मोड़कर करें।',
+    ytQuery: 'jackknife+sit+ups+v+ups+hindi'
   }
 };
 
@@ -515,42 +437,44 @@ function closeExerciseModal() {
 }
 
 const EXERCISE_REAL_PHOTO_FOLDER = {
-  mon_1: 'Pushups',
-  mon_2: 'Barbell_Bench_Press_-_Medium_Grip',
-  mon_3: 'Incline_Dumbbell_Press',
-  mon_4: 'Butterfly',
-  mon_5: 'Triceps_Pushdown_-_Rope_Attachment',
-  mon_6: 'Standing_Dumbbell_Triceps_Extension',
+  mon_1: 'Flat_Bench_Lying_Leg_Raise',
+  mon_2: 'Reverse_Crunch',
+  mon_3: 'Stomach_Vacuum',
+  mon_4: 'Barbell_Bench_Press_-_Medium_Grip',
+  mon_5: 'Incline_Dumbbell_Press',
+  mon_6: 'Plank',
   mon_7: 'Bicycling_Stationary',
-  tue_1: 'Wide-Grip_Lat_Pulldown',
-  tue_2: 'Seated_Cable_Rows',
-  tue_3: 'Face_Pull',
-  tue_4: 'Barbell_Curl',
-  tue_5: 'Hammer_Curls',
-  tue_6: 'Plank',
+  tue_1: 'Air_Bike',
+  tue_2: 'Russian_Twist',
+  tue_3: 'Rope_Crunch',
+  tue_4: 'Wide-Grip_Lat_Pulldown',
+  tue_5: 'Seated_Cable_Rows',
+  tue_6: 'Alternate_Heel_Touchers',
   tue_7: 'Bicycling_Stationary',
-  wed_1: 'Bodyweight_Squat',
-  wed_2: 'Goblet_Squat',
-  wed_3: 'Leg_Press',
-  wed_4: 'Leg_Extensions',
-  wed_5: 'Standing_Calf_Raises',
+  wed_1: 'Hanging_Leg_Raise',
+  wed_2: 'Ab_Roller',
+  wed_3: 'Goblet_Squat',
+  wed_4: 'Leg_Press',
+  wed_5: 'Flat_Bench_Leg_Pull-In',
   wed_6: 'Bicycling_Stationary',
-  thu_1: 'Dumbbell_Shoulder_Press',
-  thu_2: 'Side_Lateral_Raise',
-  thu_3: 'Front_Dumbbell_Raise',
-  thu_4: 'Dumbbell_Shrug',
-  thu_5: 'Hanging_Leg_Raise',
+  thu_1: 'Standing_Cable_Wood_Chop',
+  thu_2: 'Jackknife_Sit-Up',
+  thu_3: 'Stomach_Vacuum',
+  thu_4: 'Dumbbell_Shoulder_Press',
+  thu_5: 'Side_Lateral_Raise',
   thu_6: 'Bicycling_Stationary',
-  fri_1: 'Barbell_Incline_Bench_Press_-_Medium_Grip',
-  fri_2: 'Close-Grip_Front_Lat_Pulldown',
-  fri_3: 'Kettlebell_Thruster',
-  fri_4: 'Dips_-_Triceps_Version',
-  fri_5: 'Russian_Twist',
+  fri_1: 'Kettlebell_Thruster',
+  fri_2: 'Hanging_Leg_Raise',
+  fri_3: 'One-Arm_Kettlebell_Swings',
+  fri_4: 'Rope_Crunch',
+  fri_5: 'Close-Grip_Front_Lat_Pulldown',
   fri_6: 'Bicycling_Stationary',
   belly_1: 'Stomach_Vacuum',
   belly_2: 'Flat_Bench_Lying_Leg_Raise',
   belly_3: 'Air_Bike',
-  belly_4: 'Plank'
+  belly_4: 'Rope_Crunch',
+  belly_5: 'Ab_Roller',
+  belly_6: 'Plank'
 };
 
 function getExerciseAnimationSVG(typeOrId) {
@@ -1115,28 +1039,42 @@ const BELLY_BURNER_DAILY_EXERCISES = [
   {
     id: 'belly_1',
     type: 'core',
-    name: '1. Standing / Lying Stomach Vacuum (पेट अंदर खींचना)',
-    sets: '3 Sets × 20 Sec Hold',
+    name: '1. Standing / Lying Stomach Vacuum (पेट की दीवार अंदर खींचना)',
+    sets: '4 Sets × 20 Sec Hold',
     how: 'मुंह से पूरी सांस बाहर निकालें, फिर बिना सांस लिए नाभि (Belly Button) को रीढ़ की हड्डी की तरफ पूरा अंदर खींचें और 20 सेकंड रोकें। बाहर निकला पेट अंदर करने का यह नंबर-1 तरीका है!'
   },
   {
     id: 'belly_2',
     type: 'core',
-    name: '2. Lying Leg Raises (Lower Belly Fat Burner)',
-    sets: '3 Sets × 15 Reps',
-    how: 'मैट पर सीधे लेटें, दोनों हाथ कमर/कूल्हे के नीचे रखें। दोनों पैरों को मिलाकर बिना घुटना मोड़े 90 डिग्री ऊपर उठाएं और धीरे-धीरे जमीन से 2 इंच ऊपर तक वापस लाएं।'
+    name: '2. Flat Bench Lying Leg Raises (निचला लटका पेट अंदर)',
+    sets: '4 Sets × 15 Reps',
+    how: 'मैट या बेंच पर सीधे लेटें, दोनों हाथ कूल्हों के नीचे रखें। दोनों पैरों को मिलाकर बिना घुटना मोड़े 90 डिग्री ऊपर उठाएं और धीरे-धीरे जमीन से 2 इंच ऊपर तक वापस लाएं।'
   },
   {
     id: 'belly_3',
     type: 'core',
-    name: '3. Bicycle Crunches + Mountain Climbers',
-    sets: '3 Sets × 20 Reps',
-    how: 'पीठ के बल लेटकर साइकिल चलाने की तरह दाईं कोहनी को बाएं घुटने से और बाईं कोहनी को दाएं घुटने से टच करें।'
+    name: '3. Air Bike / Bicycle Crunches (पेट और साइड चर्बी)',
+    sets: '4 Sets × 25 Reps',
+    how: 'पीठ के बल लेटकर हवा में साइकिल चलाने की तरह दाईं कोहनी को बाएं घुटने से और बाईं कोहनी को दाएं घुटने से टच करें।'
   },
   {
     id: 'belly_4',
     type: 'core',
-    name: '4. Forearm Plank (Core Tightening)',
+    name: '4. Kneeling Cable Rope Crunch (ऊपरी तोंद गलाना)',
+    sets: '3 Sets × 15 Reps',
+    how: 'केबल मशीन के नीचे घुटनों के बल बैठकर रस्सी सिर के पास पकड़ें और पेट की मसल्स को सिकोड़ते हुए कोहनी घुटनों की तरफ लाएं।'
+  },
+  {
+    id: 'belly_5',
+    type: 'core',
+    name: '5. Ab Roller / Wheel Rollout (पूरा पेट टाइट लॉक)',
+    sets: '3 Sets × 12 Reps',
+    how: 'घुटनों पर बैठकर Ab Wheel को आगे रोल करें और नाभि को अंदर खींचते हुए वापस आएं।'
+  },
+  {
+    id: 'belly_6',
+    type: 'core',
+    name: '6. Forearm Plank Hold (Core Belt Tightening)',
     sets: '3 Sets × 60 Sec',
     how: 'कोहनी और पंजों पर शरीर को एकदम सीधा रखें और पेट को कसकर अंदर खींचें।'
   }
