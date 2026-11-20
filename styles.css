@@ -1075,7 +1075,7 @@ body {
   color: var(--text-muted);
 }
 
-/* 5-Tab Bottom Navigation */
+/* 4-Tab Bottom Navigation */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -1087,7 +1087,7 @@ body {
   backdrop-filter: blur(20px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding: 7px 6px 11px;
   z-index: 50;
 }

@@ -198,24 +198,24 @@ const DAILY_REMINDER_SLOTS = [
 const WEEKLY_GYM_PLAN = [
   {
     day: 'सोमवार (Mon)',
-    title: 'Chest + Triceps + 20 Min Incline Walk',
+    title: 'Chest + Triceps + 20 Min Stationary Cycling',
     burn: 340,
-    focus: 'Upper Body Push & Fat Loss',
+    focus: 'Upper Body Push & Belly Fat Burn (No Treadmill)',
     exercises: [
-      { id: 'mon_1', type: 'run', name: 'Warm-up: Treadmill Walk + Push-ups', sets: '2 Sets × 15 Reps', how: 'कंधे घुमाएं, फिर घुटने या पंजे पर शरीर सीधा रखकर छाती ज़मीन के करीब लाएं और ऊपर उठें।' },
+      { id: 'mon_1', type: 'run', name: 'Warm-up: 5 Min Stationary Cycling + Push-ups', sets: '2 Sets × 15 Reps', how: '5 मिनट साइकिल चलाकर शरीर गर्म करें, फिर घुटने या पंजे पर शरीर सीधा रखकर पुश-अप्स लगाएं।' },
       { id: 'mon_2', type: 'press', name: 'Flat Bench Press / Dumbbell Press', sets: '4 Sets × 10-12 Reps', how: 'बेंच पर पीठ टिकाएं, बारबेल/डंबल को छाती के बीच तक धीरे नीचे लाएं और सांस छोड़ते हुए ऊपर पुश करें।' },
       { id: 'mon_3', type: 'press', name: 'Incline Dumbbell Press (Upper Chest)', sets: '3 Sets × 12 Reps', how: 'बेंच को 30-45 डिग्री झुकाएं, डंबल को कंधों के पास से सीधा ऊपर उठाएं और ऊपर 1 सेकंड होल्ड करें।' },
       { id: 'mon_4', type: 'curl', name: 'Pec Deck / Cable Chest Fly', sets: '3 Sets × 15 Reps', how: 'कोहनी हल्की मुड़ी रखें, दोनों हाथों को छाती के सामने मिलाकर सीने को स्क्वीज़ (चोब) करें।' },
       { id: 'mon_5', type: 'curl', name: 'Tricep Rope Pushdown', sets: '3 Sets × 12-15 Reps', how: 'कोहनी कमर से चिपका कर रखें, केवल हाथ के निचले हिस्से से रस्सी नीचे खींचें।' },
       { id: 'mon_6', type: 'press', name: 'Overhead Dumbbell Tricep Extension', sets: '3 Sets × 12 Reps', how: 'सिर के पीछे दोनों हाथों से 1 डंबल पकड़ें, कोहनी अंदर रखकर डंबल ऊपर उठाएं।' },
-      { id: 'mon_7', type: 'run', name: '🔥 Cardio Finisher: 20 Min Incline Treadmill Walk', sets: 'Speed 5.5 • Incline 6', how: 'बिना हैंडल पकड़े तेज़ कदमों से चलें — यह पेट की चर्बी गलाने का सबसे अचूक तरीका है!' }
+      { id: 'mon_7', type: 'run', name: '🔥 Cardio Finisher: 20 Min Stationary Cycling + High Knees', sets: '15 Min Cycle + 5 Min High Knees', how: 'मीडियम रेजिस्टेंस पर 15 मिनट तेज़ साइकिल चलाएं, फिर खड़े होकर 5 मिनट हाई-नीज़ (जगह पर घुटने ऊपर उठाते हुए मार्च) करें!' }
     ]
   },
   {
     day: 'मंगलवार (Tue)',
-    title: 'Back + Biceps + Belly Core',
+    title: 'Back + Biceps + Belly Core & Cycling',
     burn: 360,
-    focus: 'V-Shape Back & Belly Burn',
+    focus: 'V-Shape Back & Belly Fat Melting',
     exercises: [
       { id: 'tue_1', type: 'press', name: 'Lat Pulldown (Wide Grip)', sets: '4 Sets × 12 Reps', how: 'बार को कंधों से चौड़ा पकड़ें, सीना बाहर निकालकर बार को ठोड़ी (Chin) के नीचे तक खींचें।' },
       { id: 'tue_2', type: 'curl', name: 'Seated Cable Row / Dumbbell Row', sets: '4 Sets × 10-12 Reps', how: 'कमर एकदम सीधी रखें, हैंडल को पेट (नाभि) की तरफ खींचें और पीठ की मसल्स को दबाएं।' },
@@ -223,7 +223,7 @@ const WEEKLY_GYM_PLAN = [
       { id: 'tue_4', type: 'curl', name: 'Barbell / EZ-Bar Bicep Curl', sets: '3 Sets × 12 Reps', how: 'सीधे खड़े हों, बिना कमर हिलाए बार को छाती की तरफ मोड़ें और धीरे नीचे लाएं।' },
       { id: 'tue_5', type: 'curl', name: 'Hammer Curls (Dumbbell)', sets: '3 Sets × 12 Reps', how: 'डंबल को हथौड़े की तरह सीधा पकड़ें और बारी-बारी कंधे तक उठाएं।' },
       { id: 'tue_6', type: 'core', name: 'Plank Hold + Mountain Climbers', sets: '3 Sets × 45 Sec', how: 'कोहनी और पंजों पर शरीर को तख्ते (Plank) की तरह सीधा रखें, पेट अंदर खींचकर रखें।' },
-      { id: 'tue_7', type: 'run', name: '🔥 Cardio Finisher: 20 Min Cycling / Brisk Walk', sets: '20 Mins Non-stop', how: 'लगातार मीडियम स्पीड में साइकिल या ट्रेडमिल चलाएं ताकि पसीना खुलकर आए।' }
+      { id: 'tue_7', type: 'run', name: '🔥 Cardio Finisher: 20 Min Stationary Bike (Interval Mode)', sets: '20 Mins Non-stop', how: '1 मिनट तेज़ पैडल मारें + 1 मिनट नॉर्मल पैडल — यह बिना ट्रेडमिल के पेट की चर्बी सबसे तेज़ गलाता है।' }
     ]
   },
   {
@@ -242,54 +242,30 @@ const WEEKLY_GYM_PLAN = [
   },
   {
     day: 'गुरुवार (Thu)',
-    title: 'Shoulders + Traps + Core Sculpt',
-    burn: 330,
+    title: 'Shoulders + Traps + Belly Core Sculpt',
+    burn: 340,
     focus: '3D Broad Shoulders & Waist Trim',
     exercises: [
       { id: 'thu_1', type: 'press', name: 'Seated Dumbbell Shoulder Press', sets: '4 Sets × 10-12 Reps', how: 'बेंच पर 90 डिग्री बैठें, कानों के पास से डंबल को सीधा सिर के ऊपर पुश करें।' },
       { id: 'thu_2', type: 'press', name: 'Dumbbell Lateral Raises (Side Delt)', sets: '4 Sets × 15 Reps', how: 'हल्के डंबल लेकर दोनों हाथों को बगल से कंधे की ऊंचाई तक पंख की तरह उठाएं।' },
       { id: 'thu_3', type: 'curl', name: 'Front Dumbbell / Cable Raises', sets: '3 Sets × 12 Reps', how: 'डंबल को जांघों के सामने से सीधा आंखों की सीध तक ऊपर उठाएं।' },
       { id: 'thu_4', type: 'press', name: 'Dumbbell Shrugs (Traps)', sets: '3 Sets × 15 Reps', how: 'भारी डंबल हाथ में लटकाकर कंधों को कानों की तरफ ऊपर उचकाएं और 1 सेकंड रोकें।' },
-      { id: 'thu_5', type: 'core', name: 'Hanging Knee Raises / Crunches + Plank', sets: '3 Sets × 15 Reps', how: 'पेट की निचली चर्बी के लिए घुटनों को छाती की तरफ मोड़ें या मैट पर क्रंचेस करें।' },
-      { id: 'thu_6', type: 'run', name: '🔥 Cardio Finisher: 20 Min Brisk Incline Walk', sets: 'Fat Burn Zone', how: 'दिल की धड़कन 130+ रखने के लिए तेज़ रफ़्तार में 20 मिनट चलें।' }
+      { id: 'thu_5', type: 'core', name: 'Hanging Knee Raises / Lying Leg Raises + Plank', sets: '3 Sets × 15 Reps', how: 'पेट की निचली चर्बी के लिए घुटनों को छाती की तरफ मोड़ें या मैट पर लेग रेज़ करें।' },
+      { id: 'thu_6', type: 'run', name: '🔥 Cardio Finisher: 20 Min Stationary Cycling + Jumping Jacks', sets: '15 Min Cycle + 3x40 Jacks', how: '15 मिनट तेज़ साइकिल चलाएं और 3 सेट जम्पिंग जैक्स या स्टेप-अप्स करें।' }
     ]
   },
   {
     day: 'शुक्रवार (Fri)',
-    title: 'Upper Body Compound + HIIT Finisher',
-    burn: 390,
-    focus: 'High Metabolic Burn & Muscle Tone',
+    title: 'Full Body Belly-Fat HIIT + Core Finisher',
+    burn: 410,
+    focus: 'Weekend Se Pehle Maximum Belly Fat & Calorie Burn',
     exercises: [
       { id: 'fri_1', type: 'press', name: 'Incline Barbell / Dumbbell Press', sets: '3 Sets × 12 Reps', how: 'अपर चेस्ट पर फोकस करते हुए कंट्रोल के साथ वेट नीचे लाएं और तेज़ी से पुश करें।' },
-      { id: 'fri_2', type: 'press', name: 'Close-Grip Lat Pulldown', sets: '3 Sets × 12 Reps', how: 'V-हैंडल को सीने के ऊपरी हिस्से तक खींचें और कोहनी पीछे दबाएं।' },
-      { id: 'fri_3', type: 'press', name: 'Push-ups / Arnold Shoulder Press', sets: '3 Sets × 12 Reps', how: 'डंबल को घुमाते हुए सिर के ऊपर प्रेस करें या पुश-अप्स लगाएं।' },
+      { id: 'fri_2', type: 'press', name: 'Close-Grip Lat Pulldown / Seated Row', sets: '3 Sets × 12 Reps', how: 'V-हैंडल को सीने के ऊपरी हिस्से तक खींचें और कोहनी पीछे दबाएं।' },
+      { id: 'fri_3', type: 'squat', name: 'Dumbbell Thrusters (Squat + Overhead Press)', sets: '3 Sets × 12 Reps', how: 'डंबल कंधे पर रखकर स्क्वाट बैठें और उठते ही डंबल सिर के ऊपर प्रेस करें — यह पूरे शरीर की चर्बी निचोड़ देता है!' },
       { id: 'fri_4', type: 'curl', name: 'Bicep Curl + Tricep Dip Superset', sets: '3 Sets × 12 Reps', how: 'बिना रुके पहले 12 बाइसेप कर्ल करें और तुरंत बेंच डिप्स लगाएं।' },
-      { id: 'fri_5', type: 'squat', name: 'Kettlebell Swings / Step-ups / Jumping Jacks', sets: '4 Rounds × 40 Sec', how: '40 सेकंड तेज़ करें, 20 सेकंड सांस लें — इससे कैलोरी रॉकेट की तरह जलती है!' },
-      { id: 'fri_6', type: 'run', name: '🔥 Cardio Finisher: 20 Min Cross-Trainer', sets: 'Full Body Burn', how: 'हाथ और पैर दोनों का इस्तेमाल करते हुए क्रॉस-ट्रेनर चलाएं।' }
-    ]
-  },
-  {
-    day: 'शनिवार (Sat)',
-    title: 'Full Body Fat-Loss Circuit + Core',
-    burn: 400,
-    focus: 'Belly Visceral Fat & Stamina Day',
-    exercises: [
-      { id: 'sat_1', type: 'run', name: 'Treadmill Brisk Walk + Light Jog Intervals', sets: '15 Mins', how: '2 मिनट तेज़ वॉक + 1 मिनट हल्की जॉगिंग का पैटर्न 5 बार दोहराएं।' },
-      { id: 'sat_2', type: 'squat', name: 'Dumbbell Thrusters (Squat + Overhead Press)', sets: '3 Sets × 12 Reps', how: 'डंबल कंधे पर रखकर स्क्वाट बैठें और उठते ही डंबल सिर के ऊपर प्रेस करें।' },
-      { id: 'sat_3', type: 'curl', name: 'Seated Row / Assisted Pull-ups', sets: '3 Sets × 12 Reps', how: 'पीठ और बाजुओं की ताकत के लिए पूरा स्ट्रेच और स्क्वीज़ करें।' },
-      { id: 'sat_4', type: 'core', name: 'Russian Twists + Leg Raises + Bicycle Crunches', sets: '3 Rounds', how: 'मैट पर बैठकर कमर को दाएं-बाएं घुमाएं और पैर सीधे ऊपर उठाएं।' },
-      { id: 'sat_5', type: 'core', name: 'Plank Hold Challenge', sets: '3 Sets × 60 Sec', how: 'पेट को एकदम टाइट रखकर 1 मिनट तक प्लैंक होल्ड करें।' },
-      { id: 'sat_6', type: 'core', name: 'Full Body Stretch & Deep Lung Breathing', sets: '10 Mins', how: 'गहरी सांस अंदर लें और धीरे छोड़ें।' }
-    ]
-  },
-  {
-    day: 'रविवार (Sun)',
-    title: 'Active Recovery + 45 Min Outdoor Sun Walk',
-    burn: 220,
-    focus: 'Muscle Repair & Morning Sunlight',
-    exercises: [
-      { id: 'sun_1', type: 'run', name: 'सुबह की धूप में 45 मिनट तेज़ वॉक', sets: '45 Mins', how: 'खुली हवा और सुबह की धूप में तेज़ कदमों से चलें।' },
-      { id: 'sun_2', type: 'core', name: '15 मिनट स्ट्रेचिंग और अनुलोम-विलोम प्राणायाम', sets: '15 Mins', how: 'फेफड़ों की क्षमता और स्टैमिना बढ़ाने के लिए गहरी ब्रीदिंग करें।' }
+      { id: 'fri_5', type: 'core', name: 'Russian Twists + Bicycle Crunches + Kettlebell Swings', sets: '4 Rounds × 40 Sec', how: '40 सेकंड लगातार करें, 20 सेकंड सांस लें — बाहरी और भीतरी पेट की चर्बी के लिए सबसे घातक सर्किट!' },
+      { id: 'fri_6', type: 'run', name: '🔥 Cardio Finisher: 20 Min Fast Stationary Cycling', sets: 'High Burn Finisher', how: 'हफ्ते का आखिरी जिम सेशन — 20 मिनट पूरी ताकत से साइकिल चलाकर पसीना बहाएं! (Sat-Sun Gym Rest + Outdoor Walk)' }
     ]
   }
 ];
@@ -298,7 +274,7 @@ const EXERCISE_DETAILED_GUIDE = {
   mon_1: {
     muscle: 'Chest, Shoulders & Core Warm-up',
     steps: [
-      'Step 1 (Setup): पहले 5 मिनट ट्रेडमिल पर नॉर्मल चाल में चलें, फिर दोनों हाथों को आगे-पीछे गोल घुमाएं (Arm Circles)।',
+      'Step 1 (Setup): पहले 5 मिनट स्टेशनरी साइकिल (Stationary Bike) चलाएं, फिर दोनों हाथों को आगे-पीछे गोल घुमाएं (Arm Circles)।',
       'Step 2 (Push-up Position): ज़मीन/मैट पर दोनों हाथ कंधों से थोड़े चौड़े रखें। अगर शुरुआत में मुश्किल लगे तो घुटने ज़मीन पर टिका लें (Knee Push-ups)।',
       'Step 3 (Action): सांस अंदर लेते हुए छाती को ज़मीन से 2 इंच ऊपर तक नीचे लाएं। कोहनी शरीर से 45 डिग्री पर रखें।',
       'Step 4 (Finish): सांस छोड़ते हुए हथेलियों से ज़ोर लगाकर वापस ऊपर आएं।'
@@ -362,14 +338,14 @@ const EXERCISE_DETAILED_GUIDE = {
     ytQuery: 'overhead+dumbbell+tricep+extension+hindi'
   },
   mon_7: {
-    muscle: 'Visceral Belly Fat & Heart Stamina',
+    muscle: 'Visceral Belly Fat & Heart Stamina (No Treadmill)',
     steps: [
-      'Step 1 (Settings): ट्रेडमिल पर Incline को 5 से 7 पर और Speed को 5.0 से 5.8 km/h पर सेट करें।',
-      'Step 2 (Posture): ट्रेडमिल के साइड हैंडल या आगे के बार को बिल्कुल मत पकड़ें! हाथ चलाकर तेज़ कदमों से चलें।',
-      'Step 3 (Duration): लगातार 20 मिनट तक चलें—इससे फैट सीधा एनर्जी में बदलकर जलता है।'
+      'Step 1 (Seat Height): जिम की स्टेशनरी साइकिल की सीट को अपनी कमर (Hip bone) की ऊंचाई के बराबर सेट करें।',
+      'Step 2 (Interval Pedaling): 15 मिनट तक साइकिल चलाएं — 1 मिनट तेज़ रफ़्तार में और 1 मिनट मीडियम रफ़्तार में।',
+      'Step 3 (Finisher): साइकिल से उतरकर 5 मिनट जगह पर खड़े होकर High Knees (घुटनों को कमर तक ऊपर उठाते हुए मार्च) या Jumping Jacks करें।'
     ],
-    mistake: 'हैंडल पकड़कर झुककर चलने से कैलोरी बर्न आधी हो जाती है।',
-    ytQuery: 'incline+treadmill+walk+for+fat+loss+hindi'
+    mistake: 'साइकिल चलाते समय हैंडल पर झुकें नहीं, पीठ सीधी और पेट अंदर खींचकर रखें।',
+    ytQuery: 'stationary+bike+workout+for+belly+fat+loss+hindi'
   },
   tue_1: {
     muscle: 'Lats (V-Shape Upper Back)',
@@ -545,7 +521,7 @@ const EXERCISE_REAL_PHOTO_FOLDER = {
   mon_4: 'Butterfly',
   mon_5: 'Triceps_Pushdown_-_Rope_Attachment',
   mon_6: 'Standing_Dumbbell_Triceps_Extension',
-  mon_7: 'Walking_Treadmill',
+  mon_7: 'Bicycling_Stationary',
   tue_1: 'Wide-Grip_Lat_Pulldown',
   tue_2: 'Seated_Cable_Rows',
   tue_3: 'Face_Pull',
@@ -564,21 +540,13 @@ const EXERCISE_REAL_PHOTO_FOLDER = {
   thu_3: 'Front_Dumbbell_Raise',
   thu_4: 'Dumbbell_Shrug',
   thu_5: 'Hanging_Leg_Raise',
-  thu_6: 'Walking_Treadmill',
+  thu_6: 'Bicycling_Stationary',
   fri_1: 'Barbell_Incline_Bench_Press_-_Medium_Grip',
   fri_2: 'Close-Grip_Front_Lat_Pulldown',
-  fri_3: 'Pushups',
+  fri_3: 'Kettlebell_Thruster',
   fri_4: 'Dips_-_Triceps_Version',
-  fri_5: 'One-Arm_Kettlebell_Swings',
-  fri_6: 'Jogging_Treadmill',
-  sat_1: 'Running_Treadmill',
-  sat_2: 'Kettlebell_Thruster',
-  sat_3: 'Seated_Cable_Rows',
-  sat_4: 'Russian_Twist',
-  sat_5: 'Plank',
-  sat_6: 'Stomach_Vacuum',
-  sun_1: 'Walking_Treadmill',
-  sun_2: 'Stomach_Vacuum',
+  fri_5: 'Russian_Twist',
+  fri_6: 'Bicycling_Stationary',
   belly_1: 'Stomach_Vacuum',
   belly_2: 'Flat_Bench_Lying_Leg_Raise',
   belly_3: 'Air_Bike',
@@ -675,20 +643,30 @@ function renderAll() {
   const remaining = effectiveBudget - totalEaten;
 
   // Update Sticky Always-On Calorie Bar & System Notification
-  const todayGymIdx = (new Date().getDay() + 6) % 7;
-  const todayGymPlan = WEEKLY_GYM_PLAN[todayGymIdx];
+  const rawDayIdx = (new Date().getDay() + 6) % 7;
+  const isWeekend = rawDayIdx >= 5;
+  const todayGymPlan = WEEKLY_GYM_PLAN[Math.min(4, rawDayIdx)];
   const stickyCalEl = document.getElementById('stickyCalorieStatus');
   if (stickyCalEl) {
     stickyCalEl.innerHTML = `🔥 Intake: <strong>${totalEaten} / ${effectiveBudget} kcal</strong> (${remaining >= 0 ? remaining + ' bacha' : Math.abs(remaining) + ' over!'})`;
   }
   const stickyGymEl = document.getElementById('stickyGymStatus');
   if (stickyGymEl) {
-    stickyGymEl.textContent = `🏋️ ${todayGymPlan.title.split('+')[0].trim()} ➔`;
+    stickyGymEl.textContent = isWeekend ? `🌿 Weekend Rest & Walk ➔` : `🏋️ ${todayGymPlan.title.split('+')[0].trim()} ➔`;
   }
   const homeGymEl = document.getElementById('homeGymSummary');
   if (homeGymEl) {
     const doneExCount = Object.values(today.gymExercisesDone || {}).filter(Boolean).length;
-    homeGymEl.innerHTML = `
+    homeGymEl.innerHTML = isWeekend
+      ? `
+      <div class="meal-slot-header">
+        <span>शनिवार / रविवार (Weekend Recovery)</span>
+        <span>🔥 ~220 kcal burn</span>
+      </div>
+      <h4>Gym Rest • 45 Min Outdoor Walk + 10 Min Belly Vacuum</h4>
+      <p>Mon–Fri आपने जमकर जिम किया है! आज सुबह धूप में 45 मिनट वॉक और पेट अंदर करने के लिए Stomach Vacuum करें।</p>
+    `
+      : `
       <div class="meal-slot-header">
         <span>${todayGymPlan.day}</span>
         <span>🔥 ~${todayGymPlan.burn} kcal burn</span>
@@ -732,21 +710,12 @@ function renderAll() {
     verdictEl.innerHTML = `🚨 <strong>Budget Cross (${Math.abs(remaining)} kcal extra):</strong> Aaj aapne limit se zyada kha liya hai. Ab kuch mat khayein aur 35 minute tez walk zaroor karein!`;
   }
 
-  // Water & Smoke
+  // Water
   document.getElementById('waterCount').textContent = today.water;
   const waterWaveEl = document.getElementById('waterWaveBg');
   if (waterWaveEl) {
     waterWaveEl.style.height = `${Math.min(100, Math.round((today.water / 12) * 100))}%`;
   }
-  document.getElementById('smokeCountToday').textContent = today.smokes;
-
-  // Calculate total cravings defeated & money saved across all days
-  let totalResisted = 0;
-  Object.values(state.logsByDate).forEach((d) => {
-    totalResisted += d.cravingsResisted || 0;
-  });
-  document.getElementById('cravingsDefeatedCount').textContent = totalResisted;
-  document.getElementById('smokeMoneySaved').textContent = totalResisted * 18;
 
   // Weight progress (90 -> 70)
   document.getElementById('currentWeightDisplay').textContent = `${state.currentWeight.toFixed(1)} kg`;
@@ -938,7 +907,7 @@ function switchTab(tabId, navBtn) {
     document.querySelectorAll('.bottom-nav .nav-item').forEach((b) => b.classList.remove('active'));
     navBtn.classList.add('active');
   } else {
-    const idxMap = { 'tab-home': 0, 'tab-camera': 1, 'tab-diet': 2, 'tab-gym': 3, 'tab-smoke': 4 };
+    const idxMap = { 'tab-home': 0, 'tab-camera': 1, 'tab-diet': 2, 'tab-gym': 3 };
     const buttons = document.querySelectorAll('.bottom-nav .nav-item');
     buttons.forEach((b) => b.classList.remove('active'));
     if (buttons[idxMap[tabId]]) buttons[idxMap[tabId]].classList.add('active');
@@ -964,7 +933,9 @@ function triggerConfettiBurst() {
 function renderGymPlan() {
   const bar = document.getElementById('gymDaySelectorBar');
   if (!bar) return;
-  const currentIdx = state.selectedGymDayIdx !== undefined ? state.selectedGymDayIdx : (new Date().getDay() + 6) % 7;
+  const rawIdx = (new Date().getDay() + 6) % 7;
+  const defaultIdx = Math.min(4, rawIdx); // Monday(0) to Friday(4)
+  const currentIdx = state.selectedGymDayIdx !== undefined ? Math.min(4, state.selectedGymDayIdx) : defaultIdx;
   state.selectedGymDayIdx = currentIdx;
 
   bar.innerHTML = WEEKLY_GYM_PLAN.map(
@@ -1056,7 +1027,7 @@ function updateLiveCalorieNotification(forceShow = false) {
   const effectiveBudget = state.calTarget + walkBonus;
   const remaining = effectiveBudget - totalEaten;
 
-  const todayGymPlan = WEEKLY_GYM_PLAN[(new Date().getDay() + 6) % 7];
+  const todayGymPlan = WEEKLY_GYM_PLAN[Math.min(4, (new Date().getDay() + 6) % 7)];
   const title = `🔥 Aaj Intake: ${totalEaten} / ${effectiveBudget} kcal (${remaining >= 0 ? remaining + ' bacha' : Math.abs(remaining) + ' Extra!'})`;
   const body = `💪 Protein: ${Math.round(totalP)}g | 💧 Paani: ${today.water}/12 | 🏋️ Gym: ${todayGymPlan.title}`;
 
