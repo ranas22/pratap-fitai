@@ -539,9 +539,24 @@ function loadState() {
         state.apiKey = defaultKey;
       }
     }
+    // Always sync Diet & Gym day to today's actual live system date/day on app open!
+    const liveDayIdx = (new Date().getDay() + 6) % 7;
+    state.selectedDayIdx = liveDayIdx;
+    state.selectedGymDayIdx = Math.min(4, liveDayIdx);
   } catch (e) {
     console.error('State load error:', e);
   }
+}
+
+function getFormattedTodayLabel() {
+  const now = new Date();
+  const daysHi = ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'];
+  const daysEn = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return {
+    short: `${daysEn[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]}`,
+    full: `${daysHi[now.getDay()]} • ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`
+  };
 }
 
 function saveState() {
@@ -565,6 +580,17 @@ function renderAll() {
   const walkBonus = (today.habits['walk'] ? 220 : 0) + (today.gymBonusBurn || 0);
   const effectiveBudget = state.calTarget + walkBonus;
   const remaining = effectiveBudget - totalEaten;
+
+  // Auto-sync live Date & Day badge + header
+  const dateInfo = getFormattedTodayLabel();
+  const todayBadgeEl = document.getElementById('todayDateBadge');
+  if (todayBadgeEl) {
+    todayBadgeEl.textContent = `📅 ${dateInfo.short}`;
+  }
+  const headerSubEl = document.querySelector('.user-greet p');
+  if (headerSubEl) {
+    headerSubEl.textContent = `${dateInfo.full} • 90kg ➔ 70kg`;
+  }
 
   // Update Sticky Always-On Calorie Bar & System Notification
   const rawDayIdx = (new Date().getDay() + 6) % 7;
